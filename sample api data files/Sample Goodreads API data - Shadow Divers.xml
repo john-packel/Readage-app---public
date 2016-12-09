@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+    <Request>
+        <authentication>true</authentication>
+        <key>
+            <![CDATA[nmDiYOICgwuB6r82a1fDPA]]>
+        </key>
+        <method>
+            <![CDATA[search_search]]>
+        </method>
+    </Request>
+    <search>
+        <query>
+            <![CDATA[Shadow Divers]]>
+        </query>
+        
+        <results-start>1</results-start>
+        <results-end>5</results-end>
+        <total-results>5</total-results>
+        
+        <source>Goodreads</source>
+        <query-time-seconds>0.05</query-time-seconds>
+        <results>
+            
+            <work>
+                <id type="integer">1267146</id>
+                <books_count type="integer">33</books_count>
+                <ratings_count type="integer">17876</ratings_count>
+                <text_reviews_count type="integer">1659</text_reviews_count>
+                <original_publication_year type="integer">2004</original_publication_year>
+                <original_publication_month type="integer">1</original_publication_month>
+                <original_publication_day type="integer">1</original_publication_day>
+                <average_rating>4.25</average_rating>
+                <best_book type="Book">
+                    <id type="integer">9530</id>
+                    <title>Shadow Divers</title>
+                    <author>
+                        <id type="integer">6243</id>
+                        <name>Robert Kurson</name>
+                    </author>
+                    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+                    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+                </best_book>
+            </work>
+            
+            
+            <work>
+                <id type="integer">199218</id>
+                <books_count type="integer">1</books_count>
+                <ratings_count type="integer">40</ratings_count>
+                <text_reviews_count type="integer">4</text_reviews_count>
+                <original_publication_year type="integer">2006</original_publication_year>
+                <original_publication_month type="integer">5</original_publication_month>
+                <original_publication_day type="integer">29</original_publication_day>
+                <average_rating>3.60</average_rating>
+                <best_book type="Book">
+                    <id type="integer">205844</id>
+                    <title>Shadow Divers Exposed: The Real Saga of the U-869</title>
+                    <author>
+                        <id type="integer">86341</id>
+                        <name>Gary Gentile</name>
+                    </author>
+                    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+                    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+                </best_book>
+            </work>
+            
+            
+            <work>
+                <id type="integer">3083031</id>
+                <books_count type="integer">16</books_count>
+                <ratings_count type="integer">869</ratings_count>
+                <text_reviews_count type="integer">129</text_reviews_count>
+                <original_publication_year type="integer">2008</original_publication_year>
+                <original_publication_month type="integer" nil="true"/>
+                <original_publication_day type="integer" nil="true"/>
+                <average_rating>3.88</average_rating>
+                <best_book type="Book">
+                    <id type="integer">3052203</id>
+                    <title>Titanic's Last Secrets: The Further Adventures of Shadow Divers John Chatterton and Richie Kohler</title>
+                    <author>
+                        <id type="integer">120666</id>
+                        <name>Bradford Matsen</name>
+                    </author>
+                    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+                    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+                </best_book>
+            </work>
+            
+            
+            <work>
+                <id type="integer">49463383</id>
+                <books_count type="integer">1</books_count>
+                <ratings_count type="integer">0</ratings_count>
+                <text_reviews_count type="integer">0</text_reviews_count>
+                <original_publication_year type="integer" nil="true"/>
+                <original_publication_month type="integer" nil="true"/>
+                <original_publication_day type="integer" nil="true"/>
+                <average_rating type="float">0.0</average_rating>
+                <best_book type="Book">
+                    <id type="integer">29225973</id>
+                    <title>Shadow Divers Lesson Plans</title>
+                    <author>
+                        <id type="integer">4819027</id>
+                        <name>BookRags</name>
+                    </author>
+                    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+                    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+                </best_book>
+            </work>
+            
+            
+            <work>
+                <id type="integer">42285567</id>
+                <books_count type="integer">1</books_count>
+                <ratings_count type="integer">18</ratings_count>
+                <text_reviews_count type="integer">2</text_reviews_count>
+                <original_publication_year type="integer">2012</original_publication_year>
+                <original_publication_month type="integer">12</original_publication_month>
+                <original_publication_day type="integer">3</original_publication_day>
+                <average_rating>4.17</average_rating>
+                <best_book type="Book">
+                    <id type="integer">22743150</id>
+                    <title>Shadow Divers: The True Adventure of Two Americans Who Risked Everything to Solve One of the Last Mysteries of World War II by Robert Kurson</title>
+                    <author>
+                        <id type="integer">4819027</id>
+                        <name>BookRags</name>
+                    </author>
+                    <image_url>https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png</image_url>
+                    <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
+                </best_book>
+            </work>
+        </results>
+    </search>
+</GoodreadsResponse>

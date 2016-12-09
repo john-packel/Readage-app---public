@@ -1,0 +1,29 @@
+Questions/notes:
+
+
+npm install express? (Error: Cannot find module 'express')
+
+package.json via npm process - entry point index.js
+
+Set up: 
+- ignore config files? 
+
+Node:
+- node/v6.6.0 - or install 6.9.1?
+- Start server w/ npm start?
+
+API:
+- JSON doesn't seem to be supported > using npm path/xmlToJSON.js 
+
+
+Express lecture:
+- Express requires middleware, listens for requests & passes req & resp objects to request handler via routeHandler 
+- routeHandler can change the obj to add functionality - it handles the requests 
+- Middleware takes 3 arg: resp, req, & next (like callback)
+- Next is primary request handler, which will send the response back or invoke a function, etc.
+
+- Need app.use to apply the MW
+
+
+// Wasn't sure re using Chatterbox server approach vs. the one in Angular sprint
+// Joseph said to use the one in Shortly Express; server will just serve the static page

@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app='need_a_good_read'>
+  <head>
+    <meta charset="utf-8">
+    <!-- <script src="jquery.js"></script> -->
+
+    <script src='//code.jquery.com/jquery.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/nquery.js' charset='utf-8'></script>
+
+    <title>Need A Good Read?</title>
+
+<!-- load styles used in practice app -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    
+   <!--  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" /> -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="script.js"></script>
+
+  </head>
+
+  <body ng-controller="mainController">
+    <div id="main">
+      <h1>Need A Good Read?</h1>
+      <h2>Your source for searchable content from Goodreads.com
+      </h2>	
+      <!-- <img ng-src="assets/dostoevsky_by_river-small.jpg"> -->
+         <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
+    <div ng-view></div>
+
+      <h3>
+        {{ message }}
+      </h3> 
+      <h4>
+        <img ng-src="{{img_url}}">
+        <button ng-click="img_url = 'assets/Crime_and_Punishment_Russian__small.png'">Click here for punishment!</button>
+      </h4>  
+
+      <p>Check out my daughter's awesome blog, BOOK WISH: the confessions of a bookaholic</p> 
+      <p><a href="https://bookwishblog.com" target="_blank">
+    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:92px;height:92px;border:90;margin-left: 100">
+     </a></p>
+
+
+  <!-- dependencies -->
+    <script type="text/javascript" src="/xmltojson/lib/xmlToJSON.js"></script>
+
+    <script src="app.js"></script>
+    <script src="script-controller.js"></script>
+
+</body>
+</html>
