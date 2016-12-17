@@ -1,15 +1,21 @@
 var needGoodReadApp = angular.module('need_a_good_read', []);
 
     // create the controller and inject Angular's $scope
-    needGoodReadApp.controller('mainController', function($scope, $http) {
-        // $scope.title = '';
-        // $scope.author = '';
-        // $scope.rating = '';
-        // $scope.year = ''; 
-        // $scope.image;
+  needGoodReadApp.controller('mainController', function($scope, $http) {
 
+  $scope.message = '“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky';
 
-        $scope.message = '“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky';
+  $scope.title = "The Brothers Karamazov";
+  $scope.author = "Fyodor Dostoyevsky";
+  $scope.rating = "4.30";
+  $scope.year = "1880";
+  $scope.image = "assets/brothers-karamazov.jpg";
+  $scope.id = "809944434095820800"; // dostoyevsky
+
+  // $scope.id = "809943805646487552"; // brothers karamazov
+
+  
+          
 
         $scope.sendBooks = function(book){
           $http.post('/getbooks', {book: book}

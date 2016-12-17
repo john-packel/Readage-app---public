@@ -3,16 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Need A Good Read?</title>
-      
+    <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    
+    <!-- <i class="fa fa-book" aria-hidden="true"></i> -->
+
+    <style  type="text/css">
+     body {
+       text-align: center;
+       background-color: beige;
+       /*border: 5px solid black;*/
+       font-family: 'Abel', sans-serif;
+     }
+
+   /*  #dostoyevsky {
+       margin-left: 20px
+     }*/
+    
+    </style>  
     <!-- 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. 
     But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
     And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" > -->
 
-    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -22,77 +40,74 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
 
-        <!-- load styles used in practice app -->
-        <!--     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
-         <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css/> -->
-
   </head>
 
   <body ng-controller="mainController"> <!-- SETS CONTROLLER TO LISTEN? REVIEW THIS! -->
+    <div id="dostoevsky" style="float: right">
+      <img style="border: 3px solid black;padding: 1px; margin: 10px" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
+      <!-- <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg"> assets/dostoevsky_by_river-small.jpg-->
+        <h3>
+        {{ message }}
+      </h3> 
+
+  <p><a href="https://bookwishblog.com" target="_blank">
+    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:240px;height:240px;border: 1px solid black;padding: 3px; margin: 10px">
+     </a></p>
+    <p><h4>Check out my daughter's awesome blog:<br> BOOK WISH: the confessions of a bookaholic</p> 
+
+    </div>
+
    <div class="centered">
     <div id="main">
-      <h1>Need A Good Read?</h1>
-      <h2>Searchable content from Goodreads.com
-      <br> 
-      <img ng-src="assets/dostoevsky_by_river-small.jpg">
-      <!-- <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg"> -->
-      </h2>	
-        <h4>
-        {{ message }}
-      </h4> 
-<!-- REVIEW NG-SUBMIT: WHY IT LINKED WITH "Submit" & "submit" but not "Search"? -->
-        <form ng-submit="sendBooks(book)"> <input type= "text" ng-model="book" placeholder="Enter an author or title" /><input type="Submit"/></form>
+    <br>
+      <h1 style="color: green">Need A Good Read?</h1>
+      <h2 style="color: grey">searchable content from Goodreads.com
+      <br>
+      </h2>  
+    </div>  
+   
+   <!--  <div id="middle" -->
+        <form ng-submit="sendBooks(book)"><input type= "text" ng-model="book" placeholder="Enter an author or title" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
       <!-- <img ng-src="assets/dostoevsky_by_river-small.jpg"> -->
          <!-- <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg"> -->
+
     <div ng-view></div> <!-- SETS UP RENDER W/ VARIABLES IN CONTROLLER? REVIEW THIS! -->
-      <h3>
-        <a>Title: </a> {{ title }}
-        <br>
-<style type="text/css"> 
-a {
-
- text-align: center ;
- background-color: #FAFAFA ; 
-}
-
-
-   </style>
-
-      </h3>
-      <h4>
-        <a>Author: </a> {{ author }}  <br>
+      <h2>
+        <a style="color: green;font-weight: bold">Title: </a> {{ title }}
+       <!--  <br><br> -->
+     
+    
+        <a style="color: green;font-weight: bold">|   Author: </a> {{ author }}  <br>
          <br>
-         <a>Average rating: </a> {{ rating }}  <br>
+         <a style="color: green;font-weight: bold">Average rating: </a> {{ rating }}  
+         <!-- <br><br> -->
+         <a style="color: green;font-weight: bold">|   Original publication year: </a> {{ year }}  <br>  
          <br>
-         <a>Original publication year: </a> {{ year }}  <br>  
-         <br>
-         <!-- figure out how to parse $t' -->
+ 
       <!-- </h4> -->
       <!-- </div> -->  <!-- WHAT IS DIV/p/a IMPACT ON VIEW? REVIEW THIS! -->
-
-
-<!--   /*  p.ex1 {
-    margin-right: 4cm;
-    }*/ -->
- 
-
-        <img ng-src="{{ image }}"   ></img> 
-
-
-
+        <img height="240" width="160"  ng-src="{{ image }}"   ></img> 
      <!--    <button ng-click="img_url = 'assets/Crime_and_Punishment_Russian__small.png'">Click here for punishment!</button> -->
       <!-- </h4>   -->
-    </h3>
-      <p><h5>Check out my daughter's awesome blog, BOOK WISH: the confessions of a bookaholic</p> 
-      <p><a href="https://bookwishblog.com" target="_blank">
-    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:120px;height:120px;border:90;margin-left: 100">
-     </a></h5></p>
+    </h2>
+
+               <!--       <a class="twitter-timeline"  href="https://twitter.com/search?q="+{{book}} data-widget-id="809944434095820800">Tweets about The Brothers Karamazov</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+          
+                      <a class="twitter-timeline"  href="https://twitter.com/search?q=Dostoyevsky" data-widget-id={{id}}>Tweets about {{author}}</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          
+
+    </div>
+       <!-- <div id="bookwishblog" style="float: right; vertical-align: 100px"> -->
+      <!-- <img height="240" width="340" style="border: 3px solid black;padding: 3px; margin: 10px" > -->
+
+    <!--   <p><a href="https://bookwishblog.com" target="_blank">
+    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:240px;height:240px;border: 1px solid black;padding: 3px; margin: 10px">
+     </a></p>
+    <p><h4>Check out my daughter's awesome blog:<br> BOOK WISH: the confessions of a bookaholic</p>  -->
 
 
-  <!-- dependencies -->
- <!-- THE OLD ONE   <script type="text/javascript" src="/xmltojson/lib/xmlToJSON.js"></script> -->
-    <!-- OLD FILE; NOW script-controller.js <script src="app.js"></script> -->
-    <!-- <script src="script.js"></script> -->
     <script src="script-controller.js"></script>
 
 </body>
