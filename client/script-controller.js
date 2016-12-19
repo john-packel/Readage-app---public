@@ -10,9 +10,11 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
   $scope.rating = "4.30";
   $scope.year = "1880";
   $scope.image = "assets/brothers-karamazov.jpg";
-  $scope.id = "809944434095820800"; // dostoyevsky
+  // $scope.image = "assets/shadow divers.jpeg"
+  // $scope.image = "assets/pirate hunters.jpeg";
+  // $scope.id = "809944434095820800"; // dostoyevsky
 
-  // $scope.id = "809943805646487552"; // brothers karamazov
+  $scope.id = "809943805646487552"; // brothers karamazov
 
   
           

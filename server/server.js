@@ -11,6 +11,8 @@ app.use(bodyParser());
 
 app.post('/getbooks', function (req, res) {
   console.log(req.body.book) //{book: book}
+  
+  // request('https://www.goodreads.com/author/list.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.book, function(error, response, body){
   request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.book, function(error, response, body){
     var json = parser.toJson(body);
     console.log("to json -> %s", json.GoodreadsResponse);
