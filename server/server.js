@@ -5,6 +5,7 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
+
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
 
@@ -29,6 +30,46 @@ app.post('/api', function(req, res) {
   res.send("you did a post request!")
 });
 
+
+app.get('/testNYT', function(req, res){
+  request("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=dostoyevsky&api-key=6a37f426b37a40daa8a4bca027c34077",
+  function(err, response, body) {
+    body = JSON.parse(body);
+    console.log(body.response.docs[0]);
+    
+    // console.log(body.results.docs[0]);
+  });
+});
+
+// code from API:
+// request.get({
+//   url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+//   qs: {
+//     'api-key': "6a37f426b37a40daa8a4bca027c34077",
+//     'q': "dostoyevsky"
+//   },
+// }, function(err, response, body) {
+//   body = JSON.parse(body);
+//   console.log(body);
+// });
+
+  // JS: 
+  // var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+  
+  // url += '?' + $.param({
+  //   'api-key': "6a37f426b37a40daa8a4bca027c34077",
+  //   'q': "dostoyevsky"
+  // });
+
+  // $.ajax({
+  //   url: url,
+  //   method: 'GET',
+  // }).done(function(result) {
+  //   console.log(result);
+  // }).fail(function(err) {
+  //   throw err;
+  // });
+
 app.listen(3000, function () {
   console.log('Need A Good Read? app listening on port 3000!')});
 
@@ -44,25 +85,30 @@ app.listen(3000, function () {
 //     })
 //   }
 // }
-// app.get('/*', function (req, res) {  <!-- why didn't I need a GET? REVIEW THIS! -->
+ // <!-- 
+// app.get('/test', function (req, res) { 
 //   request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=Shadow+Divers', function(error, response, body){
+//       // console.log(body);
 
-    // // testString = '<xml><a>' + body + '</a></xml>';
-    // testString = '<xml><a>It Works!</a></xml>';
-    // result = xmlToJSON.parseString(testString);
-
-  // $.get("http://jfcoder.com/test.xml.php", function(body){
-  //   var json = $.xml2json(xml);
-  //   $('pre').html(JSON.stringify(json)); // To show result in the browser
-  // });
+//       // console.log(response.GoodreadsResponse.search.results.work[0].best_book.title);
 
 
-    // body = xmlToJSON.parseString(body);
-    // console.log("+++++++++body: ", body);
-    // if(!error && response.statusCode == 200){
-  // res.send(result);
-  // });
+//     // // testString = '<xml><a>' + body + '</a></xml>';
+//     // testString = '<xml><a>It Works!</a></xml>';
+//     // result = xmlToJSON.parseString(testString);
 
+//   // $.get("http://jfcoder.com/test.xml.php", function(body){
+//   //   var json = $.xml2json(xml);
+//   //   $('pre').html(JSON.stringify(json)); // To show result in the browser
+//   // });
+
+
+//     // body = xmlToJSON.parseString(body);
+//     // console.log("+++++++++body: ", body);
+//     // if(!error && response.statusCode == 200){
+//   res.send(response);
+//   });
+// });
   
 // app.use(bodyParser.json)();
 

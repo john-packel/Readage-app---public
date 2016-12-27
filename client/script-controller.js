@@ -16,7 +16,7 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
 
   $scope.id = "809943805646487552"; // brothers karamazov
 
-  
+  $scope.nytarticles = '';
           
 
         $scope.sendBooks = function(book){
@@ -33,11 +33,14 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
               $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
 
               $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
+
           });
         };
    });
      
 
+
+ $scope.nytarticles = body.response.docs[0];
 
     // “It takes something more than intelligence to act intelligently.” “Only to live, to live and live! Life, whatever it may be!”
 

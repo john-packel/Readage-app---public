@@ -4,12 +4,8 @@
     <meta charset="utf-8">
     <title>Need A Good Read?</title>
     <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     
-    <!-- <i class="fa fa-book" aria-hidden="true"></i> -->
-<!-- <style type="text/css" src="styles.css"></style> -->
-
     <style  type="text/css">
      body {
        text-align: center;
@@ -18,18 +14,10 @@
        font-family: 'Abel', sans-serif;
      }
 
-   /*  #dostoyevsky {
-       margin-left: 20px
-     }*/
-    
     </style>  
     <!-- 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. 
     But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
     And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
-
-  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" > -->
 
     <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
 
@@ -43,66 +31,44 @@
 
   </head>
 
-  <body ng-controller="mainController"> <!-- SETS CONTROLLER TO LISTEN? REVIEW THIS! -->
-    <div id="dostoevsky" style="float: right">
+  <body ng-controller="mainController"> 
+    <div id="right-side-page" style="float: right">
       <img style="border: 3px solid black;padding: 1px; margin: 10px; width: 50%; height: 50%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
-      <!-- <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg"> assets/dostoevsky_by_river-small.jpg-->
-        <h3>
+      
+      <h3>
         {{ message }}
       </h3> 
 
-<!-- <script src=Goodreads-widget-jp.html></script> -->
-<!-- <link rel="import" href="Goodreads-widget-jp.html"> -->
-<!-- <ui:include src="Goodreads-widget-jp.html" /> -->
+      <p class="h_iframe">
+        <iframe src="Goodreads-widget-jp.html" style="width: 79%;height: 410px" seamless></iframe>
+      </p>
 
-<div class="h_iframe">
-<iframe src="Goodreads-widget-jp.html" style="width: 79%;height: 410px" seamless></iframe>
-</div>
-
-  <p>
-   Check out my daughter's awesome blog: BOOK WISH: the confessions of a bookaholic</p> 
-<a href="https://bookwishblog.com" target="_blank">
-    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:100px;height:100px;border: 1px solid black;padding: 3px">
-     </a>
+      <p>Check out my daughter's awesome blog: BOOK WISH: the confessions of a bookaholic</p><a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:100px;height:100px;border: 1px solid black;padding: 3px"></a>
   
     </div>
 
-   <div class="centered">
-    <div id="main">
-    <br>
-      <h1 style="color: green">Need A Good Read?</h1>
-      <h2 style="color: grey">searchable content from Goodreads.com
+    <div class="centered" id="main">
       <br>
-      </h2>  
+      <h1 style="color: green">Need A Good Read?</h1>
+      <h3 style="color: grey">searchable content from Goodreads.com</h3>  
     </div>  
    
-   <!--  <div id="middle" -->
-        <form ng-submit="sendBooks(book)"><input type= "text" ng-model="book" placeholder="Enter an author or title" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
-      <!-- <img ng-src="assets/dostoevsky_by_river-small.jpg"> -->
-         <!-- <img ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg"> -->
-
-    <div ng-view></div> <!-- SETS UP RENDER W/ VARIABLES IN CONTROLLER? REVIEW THIS! -->
+    <div id="middle">
+      <form ng-submit="sendBooks(book)"><input type= "text" ng-model="book" placeholder=" enter an author or title" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
+      <br> <img ng-src="{{ image }}"></img>
+         <!-- height="240" width="160"  -->
       <h2>
         <a style="color: green;font-weight: bold">Title: </a> {{ title }}
-       <!--  <br><br> -->
-     
-    
-        <a style="color: green;font-weight: bold">|   Author: </a> {{ author }}  <br>
-         <br>
-         <a style="color: green;font-weight: bold">Average rating: </a> {{ rating }}  
-         <!-- <br><br> -->
-         <a style="color: green;font-weight: bold">|   Original publication year: </a> {{ year }}  <br>  
-         <br>
- 
-      <!-- </h4> -->
-      <!-- </div> -->  <!-- WHAT IS DIV/p/a IMPACT ON VIEW? REVIEW THIS! -->
-        <img height="240" width="160"  ng-src="{{ image }}"   ></img> 
-     <!--    <button ng-click="img_url = 'assets/Crime_and_Punishment_Russian__small.png'">Click here for punishment!</button> -->
-      <!-- </h4>   -->
-    </h2>
+        <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
+        <a style="color: green;font-weight: bold">Average rating: </a> {{ rating }}  
+        <a style="color: green;font-weight: bold">|   Original publication year: </a>{{ year }}<br>
+      </h2>
+    </div>
 
-                     <a class="twitter-timeline"  href="https://twitter.com/search?q="+{{book}} data-widget-id="809944434095820800">Tweets about The Brothers Karamazov</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+     <!-- several options for hardcoding the Twitter widget until I build my own w/ API:  -->
+    <div>
+      <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           
                       <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=Dostoyevsky" data-widget-id={{id}}>Tweets about {{author}}</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
@@ -115,18 +81,18 @@
            <!--              <a class="twitter-timeline"  href="https://twitter.com/search?q=kurt%20vonnegut" data-widget-id="810278544878215168">Tweets about kurt vonnegut</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
           
-          
     </div>
-       <!-- <div id="bookwishblog" style="float: right; vertical-align: 100px"> -->
-      <!-- <img height="240" width="340" style="border: 3px solid black;padding: 3px; margin: 10px" > -->
 
-    <!--   <p><a href="https://bookwishblog.com" target="_blank">
-    <img src="assets/Bookwish.jpg" alt="Bookwish" style="width:240px;height:240px;border: 1px solid black;padding: 3px; margin: 10px">
-     </a></p>
-    <p><h4>Check out my daughter's awesome blog:<br> BOOK WISH: the confessions of a bookaholic</p>  -->
-
+    <div>
+      <h4>
+        <a href="/testNYT">
+        Click to see New York Times results for your search term
+        <br><br>     
+        <a style="color: green;font-weight: bold">New York Times results: </a> {{ nytarticles }}
+      </h4>     
+    </div>
 
     <script src="script-controller.js"></script>
 
-</body>
+  </body>
 </html>
