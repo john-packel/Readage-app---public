@@ -10,10 +10,9 @@ app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
 
 
-app.post('/getbooks', function (req, res) {
-  console.log(req.body.book) //{book: book}
+app.post('/request', function (req, res) {
+  console.log('server.js l. 14: req.body.book = ', req.body.book) //{book: book}
   
-  // request('https://www.goodreads.com/author/list.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.book, function(error, response, body){
   request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.book, function(error, response, body){
     var json = parser.toJson(body);
     console.log("to json -> %s", json.GoodreadsResponse);
@@ -22,24 +21,23 @@ app.post('/getbooks', function (req, res) {
 	res.send(json);
   });
 
-  // res.send('Need A Good Read? test 1, 2, 3...');
   console.log('I am successfully receiving a GET request...');
 });
 
-app.post('/api', function(req, res) {
-  res.send("you did a post request!")
+app.post('/NYTrequest', function (req, res) {
+  // console.log('server.js l. 28: NYTrequest ', req)
+  request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=dostoyevsky&api-key=6a37f426b37a40daa8a4bca027c34077', function(error,response, body){
+    console.log(body);
+    res.send(body);
+  })
 });
 
+// app.post('/api', function(req, res) {
+//   res.send("you did a post request!")
+// });
 
-app.get('/testNYT', function(req, res){
-  request("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=dostoyevsky&api-key=6a37f426b37a40daa8a4bca027c34077",
-  function(err, response, body) {
-    body = JSON.parse(body);
-    console.log(body.response.docs[0]);
-    
-    // console.log(body.results.docs[0]);
-  });
-});
+app.listen(3000, function () {
+  console.log('Need A Good Read? app listening on port 3000!')});
 
 // code from API:
 // request.get({
@@ -70,8 +68,7 @@ app.get('/testNYT', function(req, res){
   //   throw err;
   // });
 
-app.listen(3000, function () {
-  console.log('Need A Good Read? app listening on port 3000!')});
+
 
 // var bodyParser = function(){  // Illustration of what bodyParser is doing (Jeff)
 //   return function(req, res, next){
