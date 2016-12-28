@@ -13,22 +13,16 @@
        /*border: 5px solid black;*/
        font-family: 'Abel', sans-serif;
      }
-
     </style>  
     <!-- 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. 
     But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
     And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
 
     <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
-
   </head>
 
   <body ng-controller="mainController"> 
@@ -54,9 +48,8 @@
     </div>  
    
     <div id="middle">
-      <form ng-submit="sendBooks(book)"><input type= "text" ng-model="book" placeholder=" enter an author or title" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
-      <br> <img ng-src="{{ image }}"></img>
-         <!-- height="240" width="160"  -->
+      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder=" enter an author or title" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
+      <br> <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
       <h2>
         <a style="color: green;font-weight: bold">Title: </a> {{ title }}
         <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
@@ -65,11 +58,31 @@
       </h2>
     </div>
 
-     <!-- several options for hardcoding the Twitter widget until I build my own w/ API:  -->
-    <div>
-      <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
+    <div ng-controller="NYTController">
+      <h2>
+        <a style="color: green;font-weight: bold">Results from the New York Times</a>
+      </h2> 
+      <button class="NYTSearch" ng-model="NYTSearch"  ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button>
+      <h3>
+        <a style="color: green;font-weight: bold" href="{{web_url}}">{{ headline }}</a>
+      </h3>
+      <h4>   
+        <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br>
+        <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
+        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br>
+        <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br>
+      </h4>     
+    </div>
+
+    <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          
+
+    <script src="script-controller.js"></script>
+
+  </body>
+</html>
+
+         <!-- several options for hardcoding the Twitter widget until I build my own w/ API:  -->      
                       <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=Dostoyevsky" data-widget-id={{id}}>Tweets about {{author}}</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
                    <!--    <a class="twitter-timeline"  href="https://twitter.com/search?q=personal%20finance" data-widget-id="810273670765670404">Tweets about personal finance</a>
@@ -80,19 +93,3 @@
 
            <!--              <a class="twitter-timeline"  href="https://twitter.com/search?q=kurt%20vonnegut" data-widget-id="810278544878215168">Tweets about kurt vonnegut</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-          
-    </div>
-
-    <div>
-      <h4>
-        <a href="/testNYT">
-        Click to see New York Times results for your search term
-        <br><br>     
-        <a style="color: green;font-weight: bold">New York Times results: </a> {{ nytarticles }}
-      </h4>     
-    </div>
-
-    <script src="script-controller.js"></script>
-
-  </body>
-</html>
