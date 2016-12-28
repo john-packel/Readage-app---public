@@ -27,24 +27,26 @@
 
   <body ng-controller="mainController"> 
     <div id="right-side-page" style="float: right">
-      <img style="border: 3px solid black;padding: 1px; margin: 10px; width: 50%; height: 50%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
+      <img style="border: 3px solid black;padding: 1px; margin: 0px; width: 50%; height: 50%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
       
-      <h3>
+      <h4>
         {{ message }}
-      </h3> 
+      </h4> 
+
+    <hr style="width: 50%">
 
       <p class="h_iframe">
         <iframe src="Goodreads-widget-jp.html" style="width: 79%;height: 410px" seamless></iframe>
       </p>
-
-      <p>Check out my daughter's awesome blog: BOOK WISH: the confessions of a bookaholic</p><a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:100px;height:100px;border: 1px solid black;padding: 3px"></a>
+      <hr style="width: 50%">
+      <p>Check out my daughter's awesome blog: BOOK WISH: the confessions of a bookaholic</p><a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:90px;height:90px;border: 1px solid black;padding: 3px"></a>
   
     </div>
 
     <div class="centered" id="main">
       <br>
       <h1 style="color: green">Need A Good Read?</h1>
-      <h3 style="color: grey">searchable content from Goodreads.com</h3>  
+      <h3 style="color: grey; font-style: italic;">search Goodreads.com and the New York Times</h3>  
     </div>  
    
     <div id="middle">
@@ -57,6 +59,8 @@
         <a style="color: green;font-weight: bold">|   Original publication year: </a>{{ year }}<br>
       </h2>
     </div>
+
+<hr style="width: 30%">
 
     <div ng-controller="NYTController">
       <h2>
