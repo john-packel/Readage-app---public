@@ -13,27 +13,44 @@ app.post('/request', function (req, res) {
   console.log('server.js l. 14: req.body = ', req.body)
   // console.log('server.js l. 14: req = ', req)
 
-  request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search, function(error, response, body){
+  request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search,function(error, response, body){
+      if(error){
+        console.error('Error at line 17 in index.js (server).');
+        return next(error);
+      }
+        else {
     var json = parser.toJson(body);
     console.log("to json -> %s", json.GoodreadsResponse);
-	res.send(json);
+	res.send(json);}
   });
 
   console.log('I am successfully receiving a GET request...');
 });
 
 app.post('/NYTrequest', function (req, res) {
-  console.log('server.js l. 28: NYTrequest req.body.search ', req.body.search);
+  console.log('server.js l. 31: NYTrequest req.body.search ', req.body.search);
 
   request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + req.body.search + '&api-key=6a37f426b37a40daa8a4bca027c34077',
    function(error,response, body){
+    if(error){
+      console.error('Error at line 35 in index.js (server).');
+      return next (error);
+    }
+    else {
     console.log(body);
-    res.send(body);
+    res.send(body);}
   })
 });
 
-app.listen(3000, function () {
-  console.log('Need A Good Read? app listening on port 3000!')});
+var port = process.env.port || 3000;
+
+app.listen(port);
+
+console.log('Need A Good Read? app listening on port' + port + ', defined by process.env.port');
+
+// I believe I don't need a server-config file because those elements are in this file. 
+// Do I need Grunt, other dependencies, .deployment, any devDependencies, anything else in gitignore?
+// NEED TO REMOVE API KEYS!!! to config.js file? 
 
 // code from API:
 // request.get({
