@@ -46,7 +46,7 @@ var port = process.env.port || 3000;
 
 app.listen(port);
 
-console.log('Need A Good Read? app listening on port' + port + ', defined by process.env.port');
+console.log('Need A Good Read? app listening on port ' + port + ', defined by process.env.port');
 
 // I believe I don't need a server-config file because those elements are in this file. 
 // Do I need Grunt, other dependencies, .deployment, any devDependencies, anything else in gitignore?
