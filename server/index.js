@@ -42,7 +42,7 @@ app.post('/NYTrequest', function (req, res) {
   })
 });
 
-var port = process.env.port;
+var port = process.env.port || 8080;
 
 app.listen(port);
 
