@@ -31,18 +31,40 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
     console.log('l41: input = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
-      // console.log('resp = ', resp);
-
       var NYTresultsObj = resp.data.response.docs;
-      console.log(NYTresultsObj);
 
-      $scope.lead = resp.data.response.docs[0].lead_paragraph;
-      $scope.NYTauthor = resp.data.response.docs[0].byline.original;
-      $scope.headline = resp.data.response.docs[0].headline.main;
-      var dateFormat = resp.data.response.docs[0].pub_date;
-      $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
-      $scope.section = resp.data.response.docs[0].section_name;
-      $scope.web_url = resp.data.response.docs[0].web_url;
+ 
+      var leadsArray = [];
+      for(var x = 0; x < 10; x++){
+        leadsArray.push(NYTresultsObj[x].lead_paragraph)
+      }
+      var bylinesArray = [];
+      for(var y = 0; y < 10; y++){
+        leadsArray.push(NYTresultsObj[y].byline.original)
+      }
+     var headlinesArray = [];
+      for(var w = 0; w < 10; w++){
+        leadsArray.push(NYTresultsObj[w].headline.main)
+      }
+      
+      console.log(leadsArray);
+      console.log(bylinesArray);
+
+      $scope.results = {
+        headlines: headlinesArray,
+        leads: leadsArray,
+        // headlines: bylinesArray
+
+        // leads: ['A way of life imported from Denmark extols wooden bowls, cuddling, old shoes and line-dried laundry, among many other wholesome items and behaviors.', 'Before his most memorable television role as a masked vigilante, Mr. Williams played the detective Kenny Madison on two ABC series.']
+      }
+
+      // $scope.lead = resp.data.response.docs[0].lead_paragraph;
+      // $scope.NYTauthor = resp.data.response.docs[0].byline.original;
+      // $scope.headline = resp.data.response.docs[0].headline.main;
+      // var dateFormat = resp.data.response.docs[0].pub_date;
+      // $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
+      // $scope.section = resp.data.response.docs[0].section_name;
+      // $scope.web_url = resp.data.response.docs[0].web_url;
     });
   };
 });

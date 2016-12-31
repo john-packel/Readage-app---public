@@ -66,16 +66,28 @@
       <h2>
         <a style="color: green;font-weight: bold">Results from the New York Times</a>
       </h2> 
-      <button class="NYTSearch" ng-model="NYTSearch"  ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button>
-      <h3>
-        <a style="color: green;font-weight: bold" href="{{web_url}}">{{ headline }}</a>
+      <button class="NYTSearch" ng-model="NYTSearch"  ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
+     
+       <!-- <table> -->
+        <p ng-repeat="lead in results.leads track by $index">
+        
+           <a style="color: green;font-weight: bold">Lead: </a> {{ lead }} <br>
+          <!-- <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br> -->
+           <!-- <p ng-repeat="headline in results.headlines track by $index"> -->
+           <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
+          <!-- </tr> -->
+             <!-- </table>  -->
+
+              <h3> 
+        <!-- <a style="color: green;font-weight: bold" href="{{web_url}}">{{ headline }}</a> -->
       </h3>
       <h4>   
-        <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br>
-        <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
-        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br>
-        <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br>
-      </h4>     
+       <!--  <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br> -->
+   <!--      <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
+        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br> -->
+       <!--  <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br> -->
+      </h4> 
+     
     </div>
 
     <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
