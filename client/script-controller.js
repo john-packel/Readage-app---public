@@ -32,6 +32,10 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
     console.log('l41: input = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
       // console.log('resp = ', resp);
+
+      var NYTresultsObj = resp.data.response.docs;
+      console.log(NYTresultsObj);
+
       $scope.lead = resp.data.response.docs[0].lead_paragraph;
       $scope.NYTauthor = resp.data.response.docs[0].byline.original;
       $scope.headline = resp.data.response.docs[0].headline.main;
