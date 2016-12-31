@@ -13,6 +13,9 @@ app.post('/request', function (req, res) {
   console.log('server.js l. 14: req.body = ', req.body)
   // console.log('server.js l. 14: req = ', req)
 
+// example of book search by GR id - Brothers Karamazov - (to get description)
+    // request('https://www.goodreads.com/book/show/4934.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body){
+
   request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search,function(error, response, body){
       if(error){
         console.error('Error at line 17 in index.js (server).');

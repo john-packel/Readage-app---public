@@ -3,8 +3,8 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
 needGoodReadApp.controller('mainController', function($scope, $http) {
 // should I be using ng-init for these instead? 
   var quoteChoice = function(){
-    var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky'];
-    return quotes[parseInt(Math.random()*4)];
+    var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky'];
+    return quotes[parseInt(Math.random()*5)];
   }
   $scope.message = quoteChoice();
 
@@ -13,6 +13,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.rating = "4.30";
   $scope.year = "1880";
   $scope.image = "assets/brothers-karamazov.jpg";
+  $scope.synopsis = "The award-winning translation of Dostoevsky's last and greatest novel. 'The Brothers Karamazov' is a passionate philosophical novel set in 19th century Russia that enters deeply into the ethical debates regarding God, free will and morality. It is a spiritual drama of moral struggles concerning faith, doubt and reason, set against a modernizing Russia. It is one of John Packel's favorite books, and he loves this quote that harks back to Polonius' farewell speech to Laertes in Shakespeare's 'Hamlet': 'Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others. And having no respect he ceases to love.'";
 
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
@@ -23,6 +24,8 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
+      
+      $scope.synopsis = resp.data.GoodreadsResponse.book.description;
     });
   };
 });
