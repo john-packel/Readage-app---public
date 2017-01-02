@@ -23,17 +23,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
+
+    
+
   </head>
+<body>
+    <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:55%;">
+      <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: grey"> Please celebrate the 150-year anniversary of Dostoyevsky's masterpiece novel 'Crime and Punishment'!</span><br>
+ 
 
-  <body ng-controller="mainController"> 
-    <h3 style="color: grey;font-style: italic;">
-    Please celebrate the 150-year anniversary of Dostoyevsky's masterpiece novel 'Crime and Punishment'!
-    </h3>
+    <script type="text/javascript">
+      function scroll() {
+        $('#scrolltext').css('left', $('#scrollcontainer').width());
+        $('#scrolltext').animate({
+        left: '-='+($('#scrollcontainer').width()+$('#scrolltext').width())
+        }, 30000, function() {
+          scroll();
+        });
+      }
+      scroll();
+            
+    </script>
+       </div>
 
-     <div class="centered" id="main">
+     <div ng-controller="mainController" class="centered" id="main">
       <h1 style="color: green">Need A Good Read?</h1>
       <h3 style="color: grey; font-style: italic;">search Goodreads.com and the New York Times</h3>  
-    </div> 
+    <!-- </div>  -->
 
     <div id="right-side-page" style="float: right">
       <img style="border: 3px solid black;padding: 1px; margin: 0px; width: 30%; height: 30%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
@@ -75,9 +91,9 @@
       <button class="NYTSearch" ng-model="NYTSearch"  ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
      
        <!-- <table> -->
-        <p ng-repeat="lead in results.leads track by $index">
+        <!-- <p ng-repeat="lead in results.leads track by $index"> -->
         
-           <a style="color: green;font-weight: bold">Lead: </a> {{ lead }} <br>
+           <!-- <a style="color: green;font-weight: bold">Lead: </a> {{ lead }} <br> -->
           <!-- <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br> -->
            <!-- <p ng-repeat="headline in results.headlines track by $index"> -->
            <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
@@ -85,21 +101,44 @@
              <!-- </table>  -->
 
               <h3> 
-        <!-- <a style="color: green;font-weight: bold" href="{{web_url}}">{{ headline }}</a> -->
+        <a style="color: green;font-weight: bold" href="{{web_url}}">{{ headline }}</a>
       </h3>
       <h4>   
-       <!--  <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br> -->
-   <!--      <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
-        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br> -->
-       <!--  <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br> -->
+        <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br>
+        <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
+        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br>
+        <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br>
       </h4> 
      
     </div>
 
     <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</p> 
 
-    <script src="script-controller.js"></script>
+<!-- <div ng-controller="quoteController"> -->
+
+<!--   <div ng-controller="quoteController" id="scrollcontainer"  style="postion:relative; overflow:hidden; width:50%;">
+      <span id="scrolltext" style="position:absolute; whitespace:nowrap"> {{ message }} </span>
+    
+    <script type="text/javascript">
+      function scroll() {
+        $('#scrolltext').css('left', $('#scrollcontainer').width());
+        $('#scrolltext').animate({
+        left: '-='+($('#scrollcontainer').width()+$('#scrolltext').width())
+        }, 4000, function() {
+   // quoteChoice();
+          console.log('tester');
+          scroll();
+        });
+      }
+      scroll();
+            
+    </script>
+</div> <br> -->
+
+  <script src="script-controller.js"></script>
+  <!-- <script src="quote-controller.js"></script> -->
 
   </body>
 </html>

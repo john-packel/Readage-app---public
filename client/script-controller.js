@@ -8,6 +8,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   }
   $scope.message = quoteChoice();
 
+
   $scope.title = "The Brothers Karamazov";
   $scope.author = "Fyodor Dostoyevsky";
   $scope.rating = "4.30";
@@ -18,14 +19,14 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
       console.log('requested = ', input);
-      console.log('resp = ', resp);    
+      // console.log('resp = ', resp);    
       $scope.title = resp.data.GoodreadsResponse.search.results.work[0].best_book.title;
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
-      
-      $scope.synopsis = resp.data.GoodreadsResponse.book.description;
+      $scope.synopsis = '';
+      // $scope.synopsis = resp.data.GoodreadsResponse.book.description;
     });
   };
 });
@@ -37,40 +38,40 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
       var NYTresultsObj = resp.data.response.docs;
 
  
-      var leadsArray = [];
-      for(var x = 0; x < 10; x++){
-        leadsArray.push(NYTresultsObj[x].lead_paragraph)
-      }
-      var bylinesArray = [];
-      for(var y = 0; y < 10; y++){
-        leadsArray.push(NYTresultsObj[y].byline.original)
-      }
-     var headlinesArray = [];
-      for(var w = 0; w < 10; w++){
-        leadsArray.push(NYTresultsObj[w].headline.main)
-      }
+     //  var leadsArray = [];
+     //  for(var x = 0; x < 10; x++){
+     //    leadsArray.push(NYTresultsObj[x].lead_paragraph)
+     //  }
+     //  var bylinesArray = [];
+     //  for(var y = 0; y < 10; y++){
+     //    leadsArray.push(NYTresultsObj[y].byline.original)
+     //  }
+     // var headlinesArray = [];
+     //  for(var w = 0; w < 10; w++){
+     //    leadsArray.push(NYTresultsObj[w].headline.main)
+     //  }
       
-      console.log(leadsArray);
-      console.log(bylinesArray);
+     //  console.log(leadsArray);
+     //  console.log(bylinesArray);
 
-      $scope.results = {
-        headlines: headlinesArray,
-        leads: leadsArray,
-        // headlines: bylinesArray
+     //  $scope.results = {
+     //    // headlines: headlinesArray,
+     //    leads: leadsArray
+     //    // headlines: bylinesArray
+     //  }
 
-        // leads: ['A way of life imported from Denmark extols wooden bowls, cuddling, old shoes and line-dried laundry, among many other wholesome items and behaviors.', 'Before his most memorable television role as a masked vigilante, Mr. Williams played the detective Kenny Madison on two ABC series.']
-      }
-
-      // $scope.lead = resp.data.response.docs[0].lead_paragraph;
-      // $scope.NYTauthor = resp.data.response.docs[0].byline.original;
-      // $scope.headline = resp.data.response.docs[0].headline.main;
-      // var dateFormat = resp.data.response.docs[0].pub_date;
-      // $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
-      // $scope.section = resp.data.response.docs[0].section_name;
-      // $scope.web_url = resp.data.response.docs[0].web_url;
+      $scope.lead = resp.data.response.docs[0].lead_paragraph;
+      $scope.NYTauthor = resp.data.response.docs[0].byline.original;
+      $scope.headline = resp.data.response.docs[0].headline.main;
+      var dateFormat = resp.data.response.docs[0].pub_date;
+      $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
+      $scope.section = resp.data.response.docs[0].section_name;
+      $scope.web_url = resp.data.response.docs[0].web_url;
     });
   };
 });
+
+// module.exports = quoteChoice;
 
   // alternates for default image:
     // $scope.image = "assets/shadow divers.jpeg"

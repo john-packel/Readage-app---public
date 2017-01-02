@@ -9,8 +9,8 @@ app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
 
 app.post('/request', function (req, res) {
-  console.log('server.js l. 14: req.body.search = ', req.body.search)
-  console.log('server.js l. 14: req.body = ', req.body)
+  console.log('index.js l. 14: req.body.search = ', req.body.search)
+  console.log('index.js l. 14: req.body = ', req.body)
   // console.log('server.js l. 14: req = ', req)
 
 // example of book search by GR id - Brothers Karamazov - (to get description)
@@ -23,7 +23,7 @@ app.post('/request', function (req, res) {
       }
         else {
     var json = parser.toJson(body);
-    console.log("to json -> %s", json.GoodreadsResponse);
+    // console.log("to json -> %s", json.GoodreadsResponse);
 	res.send(json);}
   });
 
@@ -31,7 +31,7 @@ app.post('/request', function (req, res) {
 });
 
 app.post('/NYTrequest', function (req, res) {
-  console.log('server.js l. 31: NYTrequest req.body.search ', req.body.search);
+  console.log('index.js l. 34: NYTrequest req.body.search ', req.body.search);
 
   request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + req.body.search + '&api-key=6a37f426b37a40daa8a4bca027c34077',
    function(error,response, body){
@@ -40,7 +40,7 @@ app.post('/NYTrequest', function (req, res) {
       return next (error);
     }
     else {
-    console.log(body);
+    // console.log(body);
     res.send(body);}
   })
 });
