@@ -36,6 +36,7 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
     console.log('l41: input = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
       var NYTresultsObj = resp.data.response.docs;
+      console.log(NYTresultsObj);
 
  
      //  var leadsArray = [];
@@ -60,13 +61,13 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
      //    // headlines: bylinesArray
      //  }
 
-      $scope.lead = resp.data.response.docs[0].lead_paragraph;
-      $scope.NYTauthor = resp.data.response.docs[0].byline.original;
-      $scope.headline = resp.data.response.docs[0].headline.main;
-      var dateFormat = resp.data.response.docs[0].pub_date;
+      $scope.lead = resp.data.response.docs[9].lead_paragraph;
+      $scope.NYTauthor = resp.data.response.docs[9].byline.original;
+      $scope.headline = resp.data.response.docs[9].headline.main;
+      var dateFormat = resp.data.response.docs[9].pub_date;
       $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
-      $scope.section = resp.data.response.docs[0].section_name;
-      $scope.web_url = resp.data.response.docs[0].web_url;
+      $scope.section = resp.data.response.docs[9].section_name;
+      $scope.web_url = resp.data.response.docs[9].web_url;
     });
   };
 });
