@@ -5,6 +5,8 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
+
+
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
 
@@ -49,7 +51,92 @@ var port = process.env.PORT || 8080;
 
 app.listen(port);
 
-console.log('Need A Good Read? app listening on port ' + port + ', defined by process.env.port');
+console.log('Time for a Good Read? app listening on port ' + port + ', defined by process.env.port');
+
+// =================================================
+// Trying to use x-ray to scrape Quora.com:
+
+  var Xray = require('x-ray');
+  var x = Xray();
+  // var x = new Xray();
+ 
+// tried examples in documentation, tutorials and this talk: https://www.fullstackacademy.com/tech-talks/web-scraping-with-x-ray
+  // I can get the question and question URL but can't figure out how to filter out all the other stuff
+
+// these 3 return same results: @class="rendered_qtext" AND @class="question_text" AND @class="question_link"
+
+  // x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class="rendered_qtext"'}])
+
+  // x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class="question_text"'}])
+
+  x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class.question_text', href: '@href', ql: '@a.question_link', rqt: '@span.rendered_qtext'}])
+
+
+// x('https://www.quora.com/topic/Bitcoin', 'span', ['@class="rendered_qtext"'])
+
+// #__w2_p4vsdhp_link > span > span
+
+   
+// to get the a tags, doesn't matter whether @span.question_text or blank ''
+// x('https://www.quora.com/topic/Bitcoin', 'a', [{atags: '@span.question_text'}])
+// x('https://www.quora.com/topic/Bitcoin', 'a', [{atags: ''}])
+
+//  x('https://www.quora.com/topic/Bitcoin', {
+//   title: 'title',
+//   body: x('body', {href: '@href'})
+//   // body: x('body', {section: x('@web_page logged_out pretty_blogs lang_en gating-comment_upvoters-off gating-qtext2_beta_group-off gating-feed_desktop_modal-off', {href: '@href'})})
+// })
+
+  // questions: x('@div class="QuestionText', {href: '@href'})
+  // elements: x('@"pagedlist_item"', {q: '@div class="QuestionText'})
+
+
+ // paged list item: #uqBNtD
+// feed paged list: #tcFUwN
+
+
+
+//   // body: 'body',
+//   // items: x('.item', [{
+//   //   title: '.item-content',
+//   //   description: '.item-content section'
+  // }])
+
+(function(err, obj) {
+  console.log('obj = ', obj)})
+
+
+// from documentation: 
+
+// var Xray = require('x-ray');
+// var x = Xray();
+ 
+// x('https://dribbble.com', 'li.group', [{
+//   title: '.dribbble-img strong',
+//   image: '.dribbble-img [data-src]@data-src',
+// }])
+//   .paginate('.next_page@href')
+//   .limit(3)
+//   .write('results.json');
+
+
+// x('https://www.quora.com/topic/Bitcoin', 'title').write('results.json')
+
+
+
+// x('http://news.ycombinator.com', 'body@html')(function(results){
+//   console.log('results.json =', results);
+//   console.log('inner html =', body);
+// });
+
+// x('http://google.com', 'title')(function(err, title) {
+//   console.log('index.js line 69 +++++');
+//   console.log(title) // Google 
+// });
+
+
+
+
 
 // I believe I don't need a server-config file because those elements are in this file. 
 // Do I need Grunt, other dependencies, .deployment, any devDependencies, anything else in gitignore?
