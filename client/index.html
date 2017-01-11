@@ -29,7 +29,7 @@
   </head>
 <body>
     <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:55%;">
-      <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: grey"> Please celebrate the 150-year anniversary of Dostoyevsky's masterpiece novel 'Crime and Punishment'!</span><br>
+      <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: brown"> Please celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</span><br>
  
 
     <script type="text/javascript">
@@ -45,10 +45,13 @@
             
     </script>
        </div>
-<img style="width: 15%; height: 15%; align-content: left " src="assets/NaGR logo2.png">
+
      <div ng-controller="mainController" class="centered" id="main">
-   <!--    <h1 style="color: green">Need A Good Read?</h1>
-      <h3 style="color: grey; font-style: italic;">search Goodreads & the New York Times</h3>  --> 
+      <!-- <h1 style="color: green">Need A Good Read?</h1> -->
+      <h3>
+        <img style="width: 25%; height: 25% " src="assets/TfaGR-full.png">
+        <!-- <a style="color: grey; font-style: italic; vertical-align: text-bottom;">search Goodreads & the New York Times</a>   -->
+      </h3>
     <!-- </div>  -->
 
     <div id="right-side-page" style="float: right">
@@ -108,7 +111,7 @@
     </div>
 
     <div id="middle">
-      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder=" enter a subject or author" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
+      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="subject or author" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
       <br> <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
       <h2>
         <a style="color: green;font-weight: bold">Title: </a> {{ title }}
@@ -127,7 +130,7 @@
       <h2>
         <a style="color: green;font-weight: bold">Results from the New York Times</a>
       </h2> 
-      <button class="NYTSearch" ng-model="NYTSearch"  ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
+      <button class="NYTSearch" ng-model="NYTSearch" style="color: brown" ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
      
        <!-- <table> -->
         <!-- <p ng-repeat="lead in results.leads track by $index"> -->
@@ -150,7 +153,7 @@
       </h4> 
      
     </div>
-
+<hr style="width: 30%"><br>
     <a class="twitter-timeline"  data-widget-id="809944434095820800"></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p> 
