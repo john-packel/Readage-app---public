@@ -1,3 +1,5 @@
+// NEED TO REMOVE API KEYS!!!
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -5,19 +7,13 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
-
-
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
 
 app.post('/request', function (req, res) {
-  console.log('index.js l. 14: req.body.search = ', req.body.search)
-  console.log('index.js l. 14: req.body = ', req.body)
+  console.log('index.js l. 13: Goodreads req.body.search = ', req.body.search)
+  console.log('index.js l. 15: Goodreads req.body = ', req.body)
   // console.log('server.js l. 14: req = ', req)
-
-// example of book search by GR id - Brothers Karamazov - (to get description)
-    // request('https://www.goodreads.com/book/show/4934.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body){
-
   request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search,function(error, response, body){
       if(error){
         console.error('Error at line 17 in index.js (server).');
@@ -28,8 +24,9 @@ app.post('/request', function (req, res) {
     // console.log("to json -> %s", json.GoodreadsResponse);
 	res.send(json);}
   });
-
   console.log('I am successfully receiving a GET request...');
+  // example of book search by GR id - Brothers Karamazov - (to get description)
+    // request('https://www.goodreads.com/book/show/4934.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body){
 });
 
 app.post('/NYTrequest', function (req, res) {
@@ -38,7 +35,7 @@ app.post('/NYTrequest', function (req, res) {
   request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + req.body.search + '&api-key=6a37f426b37a40daa8a4bca027c34077',
    function(error,response, body){
     if(error){
-      console.error('Error at line 35 in index.js (server).');
+      console.error('Error at line 40 in index.js (server).');
       return next (error);
     }
     else {
@@ -54,13 +51,51 @@ app.listen(port);
 console.log('Time for a Good Read? app listening on port ' + port + ', defined by process.env.port');
 
 // =================================================
-// Trying to use x-ray to scrape Quora.com:
+// x-ray to scrape Quora.com:
 
-  var Xray = require('x-ray');
-  var x = Xray();
+  // var Xray = require('x-ray');
+  // var x = Xray();
   // var x = new Xray();
- 
-// tried examples in documentation, tutorials and this talk: https://www.fullstackacademy.com/tech-talks/web-scraping-with-x-ray
+
+// var QuoraQURL;
+// var QuoraQuestion;
+
+// x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
+//   QQuestionLink: x('.question_link @href'),
+//   QQuestion:  x('.rendered_qtext')
+// }])
+// (function(err, qtext) {
+//   console.log(qtext);
+//   QuoraQURL = qtext[0].QQuestionLink;
+//   QuoraQuestion = qtext[0].QQuestion;
+//   // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
+//   // console.log('QuoraQuestion = ', qtext[0].QQuestion);
+//   console.log('QuoraQURL from var = ', QuoraQURL);
+//    console.log('QuoraQuestion from var = ', QuoraQuestion);
+// }); 
+
+// module.exports = QuoraQuestion;
+// module.exports = QuoraQURL;
+
+// from John when working it out:
+// x('https://www.quora.com/topic/Bitcoin', '.question_text', [
+//   question: x('.rendered_qtext')
+// }]) // this is called composing; calling function again on the initial results
+// (function(err, qtext) {
+//   console.log(qtext)
+// })
+
+// x('https://www.quora.com/topic/Bitcoin', ['a question_link'])(function(err, qtext) {
+//   console.log(qtext)
+// })
+
+// x('https://www.quora.com/topic/Bitcoin', ['.rendered_qtext', '@href', 'question_link@href'])(function(err, qtext) {
+//   console.log(qtext)
+// })
+
+
+
+// I tried examples in documentation, tutorials and this talk: https://www.fullstackacademy.com/tech-talks/web-scraping-with-x-ray
   // I can get the question and question URL but can't figure out how to filter out all the other stuff
 
 // these 3 return same results: @class="rendered_qtext" AND @class="question_text" AND @class="question_link"
@@ -69,7 +104,23 @@ console.log('Time for a Good Read? app listening on port ' + port + ', defined b
 
   // x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class="question_text"'}])
 
-  x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class.question_text', href: '@href', ql: '@a.question_link', rqt: '@span.rendered_qtext'}])
+  // x('https://www.quora.com/topic/Bitcoin', 'a', [{crqt: '@class.question_text', href: '@href', ql: '@a.question_link', rqt: '@span.rendered_qtext'}])
+
+// x('https://www.quora.com/topic/Bitcoin', '#__w2_PoIJk4i_feed_item', [{qt: 'div.Question_Text'
+//   @class.question_text', href: '@href', ql: '@a.question_link', rqt: '@span.rendered_qtext'}])
+
+
+// got this working based on tutorial, but only headline & imageURL are returned
+  // x('http://www.wsj.com/news/whats-news', '#move_2 > div.zonedModule > div > ul > li', [{
+  //   headline: 'h3 a', // so it drills down based on this path? selector > h3 > a
+  //   link: 'h3 a @href', 
+  //   imageURL: 'img@data-src',
+  //   snippet: 'div.summary-container p', // he doesn't explain why .summary
+  //   keyword: x('h3 @href', 'head meta[name="keywords"]@content')
+  // }])
+
+// John M: website is tree; html > body > 
+
 
 
 // x('https://www.quora.com/topic/Bitcoin', 'span', ['@class="rendered_qtext"'])
@@ -90,11 +141,8 @@ console.log('Time for a Good Read? app listening on port ' + port + ', defined b
   // questions: x('@div class="QuestionText', {href: '@href'})
   // elements: x('@"pagedlist_item"', {q: '@div class="QuestionText'})
 
-
  // paged list item: #uqBNtD
 // feed paged list: #tcFUwN
-
-
 
 //   // body: 'body',
 //   // items: x('.item', [{
@@ -102,8 +150,8 @@ console.log('Time for a Good Read? app listening on port ' + port + ', defined b
 //   //   description: '.item-content section'
   // }])
 
-(function(err, obj) {
-  console.log('obj = ', obj)})
+// (function(err, obj) {
+//   console.log('obj = ', obj)})
 
 
 // from documentation: 
@@ -122,8 +170,6 @@ console.log('Time for a Good Read? app listening on port ' + port + ', defined b
 
 // x('https://www.quora.com/topic/Bitcoin', 'title').write('results.json')
 
-
-
 // x('http://news.ycombinator.com', 'body@html')(function(results){
 //   console.log('results.json =', results);
 //   console.log('inner html =', body);
@@ -136,11 +182,9 @@ console.log('Time for a Good Read? app listening on port ' + port + ', defined b
 
 
 
-
-
 // I believe I don't need a server-config file because those elements are in this file. 
 // Do I need Grunt, other dependencies, .deployment, any devDependencies, anything else in gitignore?
-// NEED TO REMOVE API KEYS!!! to config.js file? 
+
 
 // code from API:
 // request.get({

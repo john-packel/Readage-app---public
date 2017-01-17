@@ -6,9 +6,9 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
     var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky'];
     return quotes[parseInt(Math.random()*5)];
   }
-  $scope.message = quoteChoice();
+  $scope.message = quoteChoice(); // module.exports = quoteChoice;
 
-
+// ================== default display & Goodreads.com results ================================
   $scope.title = "The Brothers Karamazov";
   $scope.author = "Fyodor Dostoyevsky";
   $scope.rating = "4.30";
@@ -18,7 +18,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
 
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
-      console.log('requested = ', input);
+      console.log('script-controller.js l 21: mainController / Goodreads input (request) = ', input);
       // console.log('resp = ', resp);    
       $scope.title = resp.data.GoodreadsResponse.search.results.work[0].best_book.title;
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
@@ -26,20 +26,50 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
       $scope.synopsis = '';
-      // $scope.synopsis = resp.data.GoodreadsResponse.book.description;
+      // $scope.synopsis = resp.data.GoodreadsResponse.book.description; // need to make 2nd API call to get this
     });
   };
 });
      
+// ================== New York Times results ===================================
 needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
-    console.log('l41: input = ', input);
+    console.log('script-controller.js l37: NYTController input (request) = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
-      var NYTresultsObj = resp.data.response.docs;
-      console.log(NYTresultsObj);
+      if(resp.data.response === undefined) {
+          console.log('Sorry, the New York Times is not returning search results for this term.');
+          $scope.NYTauthor = "Sorry, the New York Times is not returning search results for this term."
+          $scope.pubdate = "I know; what the dilly yo? Seriously."
+          $scope.section = " Please try another search using the input box at the top of the the page."
+          $scope.lead = "If you're really pissed, you can reach the Times' Public Editor at public@nytimes.com. :)"
+          return;
+         } else {
 
+      var NYTresultsObj = resp.data.response.docs;
+
+      console.log('script-controller.js l40: NYTController: NYTresultsObj = ', NYTresultsObj);
  
-     //  var leadsArray = [];
+      if(!resp.data.response.docs[9].lead_paragraph) {$scope.lead = "Sorry, no result returned."} else {
+        $scope.lead = resp.data.response.docs[9].lead_paragraph;
+      }
+      if(!resp.data.response.docs[9].byline) {$scope.NYTauthor = "Sorry, no result returned."} else {
+        $scope.NYTauthor = resp.data.response.docs[9].byline.original;
+      }
+      if(!resp.data.response.docs[9].headline) {$scope.headline = "Sorry, no result returned."} else {
+        $scope.headline = resp.data.response.docs[9].headline.main;
+      }
+      if(!resp.data.response.docs[9].pub_date) {$scope.pubdate = "Sorry, no result returned."} else {
+        var dateFormat = resp.data.response.docs[9].pub_date;
+        $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
+      }
+      if(!resp.data.response.docs[9].section_name) {$scope.section = "Sorry, no result returned."} else {
+        $scope.section = resp.data.response.docs[9].section_name;
+      }
+      if(!resp.data.response.docs[9].web_url) {$scope.web_url = "Sorry, no result returned."} else {
+        $scope.web_url = resp.data.response.docs[9].web_url;
+      }
+     // from my attempt to display more than 1 result:
+        //  var leadsArray = [];
      //  for(var x = 0; x < 10; x++){
      //    leadsArray.push(NYTresultsObj[x].lead_paragraph)
      //  }
@@ -60,19 +90,40 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
      //    leads: leadsArray
      //    // headlines: bylinesArray
      //  }
-
-      $scope.lead = resp.data.response.docs[9].lead_paragraph;
-      $scope.NYTauthor = resp.data.response.docs[9].byline.original;
-      $scope.headline = resp.data.response.docs[9].headline.main;
-      var dateFormat = resp.data.response.docs[9].pub_date;
-      $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
-      $scope.section = resp.data.response.docs[9].section_name;
-      $scope.web_url = resp.data.response.docs[9].web_url;
-    });
+    }});
   };
 });
 
-// module.exports = quoteChoice;
+// ================== Quora.com results ===================================
+needGoodReadApp.controller('QuoraController', function($scope) {
+  $scope.QuoraSearch = function (input) {
+    console.log('script-controller.js line 81. QuoraController: input is: ', input);
+    // ==================== x-ray to scrape Quora.com 
+
+    var Xray = require('x-ray');
+    var x = Xray();
+    var QuoraQURL;
+    var QuoraQuestion;
+
+    x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
+      QQuestionLink: x('.question_link @href'),
+      QQuestion:  x('.rendered_qtext')
+    }])
+    (function(err, qtext) {
+      console.log(qtext);
+      QuoraQURL = qtext[0].QQuestionLink;
+      QuoraQuestion = qtext[0].QQuestion;
+        // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
+        // console.log('QuoraQuestion = ', qtext[0].QQuestion);
+      console.log('QuoraQURL from var = ', QuoraQURL);
+      console.log('QuoraQuestion from var = ', QuoraQuestion);
+    }); 
+
+    $scope.QuoraQuestion = QuoraQuestion;
+    var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input};
+    console.log('script-controller.js line 87. QuoraController: topicURL is: ', topicURL);
+  }
+})
 
   // alternates for default image:
     // $scope.image = "assets/shadow divers.jpeg"
