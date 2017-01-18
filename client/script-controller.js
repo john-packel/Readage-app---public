@@ -52,25 +52,25 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
       var NYTresultsObj = resp.data.response.docs;
 
       console.log('script-controller.js l54: NYTController: NYTresultsObj = ', NYTresultsObj);
- 
-      if(!resp.data.response.docs[9].lead_paragraph) {$scope.lead = "Sorry, no result returned."} else {
-        $scope.lead = resp.data.response.docs[9].lead_paragraph;
+ // if(resp.data.response.docs[9] === undefined) {$scope.lead = "Sorry, no result returned."} else {
+      if(!resp.data.response.docs[0].lead_paragraph) {$scope.lead = "Sorry, no result returned."} else {
+        $scope.lead = resp.data.response.docs[0].lead_paragraph;
       }
-      if(!resp.data.response.docs[9].byline) {$scope.NYTauthor = "Sorry, no result returned."} else {
-        $scope.NYTauthor = resp.data.response.docs[9].byline.original;
+      if(!resp.data.response.docs[0].byline) {$scope.NYTauthor = "Sorry, no result returned."} else {
+        $scope.NYTauthor = resp.data.response.docs[0].byline.original;
       }
-      if(!resp.data.response.docs[9].headline) {$scope.headline = "Sorry, no result returned."} else {
-        $scope.headline = resp.data.response.docs[9].headline.main;
+      if(!resp.data.response.docs[0].headline) {$scope.headline = "Sorry, no result returned."} else {
+        $scope.headline = resp.data.response.docs[0].headline.main;
       }
-      if(!resp.data.response.docs[9].pub_date) {$scope.pubdate = "Sorry, no result returned."} else {
-        var dateFormat = resp.data.response.docs[9].pub_date;
+      if(!resp.data.response.docs[0].pub_date) {$scope.pubdate = "Sorry, no result returned."} else {
+        var dateFormat = resp.data.response.docs[0].pub_date;
         $scope.pubdate = dateFormat.slice(5,7) + '/' + dateFormat.slice(8,10) + '/' + dateFormat.slice(0,4);
       }
-      if(!resp.data.response.docs[9].section_name) {$scope.section = "Sorry, no result returned."} else {
-        $scope.section = resp.data.response.docs[9].section_name;
+      if(!resp.data.response.docs[0].section_name) {$scope.section = "Sorry, no result returned."} else {
+        $scope.section = resp.data.response.docs[0].section_name;
       }
-      if(!resp.data.response.docs[9].web_url) {$scope.web_url = "Sorry, no result returned."} else {
-        $scope.web_url = resp.data.response.docs[9].web_url;
+      if(!resp.data.response.docs[0].web_url) {$scope.web_url = "Sorry, no result returned."} else {
+        $scope.web_url = resp.data.response.docs[0].web_url;
       }
      // from my attempt to display more than 1 result:
         //  var leadsArray = [];
