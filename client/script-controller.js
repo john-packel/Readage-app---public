@@ -16,9 +16,29 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.image = "assets/brothers-karamazov.jpg";
   $scope.synopsis = "The award-winning translation of Dostoevsky's last and greatest novel. 'The Brothers Karamazov' is a passionate philosophical novel set in 19th-century Russia that enters deeply into the ethical debates regarding God, free will and morality. It is a spiritual drama of moral struggles concerning faith, doubt and reason, set against a modernizing Russia.";
 
+  $scope.headline = "THE PLAY; Those Karamazovs Again";
+  $scope.web_url = "http://query.nytimes.com/gst/abstract.html?res=9C0CE3D81E30E132A25757C0A9679C946695D6CF&legacy=true";
+  $scope.NYTauthor = 'By J. BROOKS ATKINSON';
+  $scope.pubdate = "01/04/1927";
+  $scope.lead = "All the dark and inscrutable tribulations of 'The Brothers Karamazov' are preserved in the long dramatic adaptation of that Russian novel at the Guild Theatre, where the opening public performance was given last evening. The adaptation is by Jacques Copeau and Jean Croue, and was played here in French by M. Copeau's Vieux Colombier troupe at the Garrick Theatre in 1919.";
+
+  // $scope.topicURL = 'https://www.quora.com/topic/The-Brothers-Karamazov-1880-book';
+
   // It is one of John Packel's favorite books, and he loves this quote that harks back to Polonius' farewell speech to Laertes in Shakespeare's 'Hamlet': 'Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others. And having no respect he ceases to love.'
 
   $scope.topicURL = 'https://www.quora.com/topic/Fyodor-Dostoyevsky-author';
+
+  $scope.QuoraQuestion1 = "How do I read Dostoyevski's 'Crime and punishment'?"
+  $scope.QuoraURL1 = "https://www.quora.com/How-do-I-read-Dostoyevskis-Crime-and-punishment"
+  $scope.QuoraQuestion2 = "Which is the best among Dostoyevsky's novels, and why?"
+  $scope.QuoraURL2 = "https://www.quora.com/Which-is-the-best-among-Dostoyevskys-novels-and-why"
+  $scope.QuoraQuestion3 = "In what way did 'The Brothers Karamazov' influence you?"
+  $scope.QuoraURL3 = "https://www.quora.com/In-what-way-did-The-Brothers-Karamazov-influence-you"
+  $scope.QuoraQuestion4 = "Which Fyodor Dostoyevsky book shall I read to start with?"
+  $scope.QuoraURL4 = "https://www.quora.com/Which-Fyodor-Dostoyevsky-book-shall-I-read-to-start-with"
+  $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?"
+  $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much"
+
 
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
