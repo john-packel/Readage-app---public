@@ -153,7 +153,7 @@
       </h4> 
      
     </div>
-    <hr style="width: 30%"><br>
+    <hr style="width: 30%">
 
 <!-- var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input}; -->
 <div ng-controller='QuoraController'>
@@ -163,12 +163,15 @@
 console.log('topicURL is: ', topicURL);
 </script> -->
 <h2>
-<a href="topicURL" style="color: green;font-weight: bold">Topic page on Quora.com matching your search</a>
+<a href="{{topicURL}}" style="color: green;font-weight: bold">Topic page on Quora.com matching your search</a>
 </h2>
 <button class="QuoraSearch" ng-model="QuoraSearch" style="color: brown" ng-click="QuoraSearch(input)">Click to see Quora results for your search term</button><br>
 
 <h4>   
-        <a style="color: green;font-weight: bold">Question: </a> {{ QuoraQuestion }}<br><br>
+        <a style="color: green;font-weight: bold" href="{{QuoraURL1}}">{{ QuoraQuestion1 }}</a> <br>
+        <a style="color: green;font-weight: bold" href="{{QuoraURL1}}">{{ QuoraQuestion2 }}</a> <br>
+       <!--  <a style="color: green;font-weight: bold">Link: </a> {{ QuoraURL }}<br>
+        <br> -->
         </h4>
 
 </div>

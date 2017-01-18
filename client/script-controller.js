@@ -16,6 +16,8 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.image = "assets/brothers-karamazov.jpg";
   $scope.synopsis = "The award-winning translation of Dostoevsky's last and greatest novel. 'The Brothers Karamazov' is a passionate philosophical novel set in 19th-century Russia that enters deeply into the ethical debates regarding God, free will and morality. It is a spiritual drama of moral struggles concerning faith, doubt and reason, set against a modernizing Russia. It is one of John Packel's favorite books, and he loves this quote that harks back to Polonius' farewell speech to Laertes in Shakespeare's 'Hamlet': 'Above all, don't lie to yourself. The man who lies to himself and listens to his own lie comes to a point that he cannot distinguish the truth within him, or around him, and so loses all respect for himself and for others. And having no respect he ceases to love.'";
 
+  $scope.topicURL = 'https://www.quora.com/topic/Fyodor-Dostoyevsky-author';
+
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
       console.log('script-controller.js l 21: mainController / Goodreads input (request) = ', input);
@@ -26,6 +28,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
       $scope.synopsis = '';
+      $scope.topicURL = 'https://www.quora.com/topic/' + input;
       // $scope.synopsis = resp.data.GoodreadsResponse.book.description; // need to make 2nd API call to get this
     });
   };
@@ -42,6 +45,7 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
           $scope.pubdate = "I know; what the dilly yo? Seriously."
           $scope.section = " Please try another search using the input box at the top of the the page."
           $scope.lead = "If you're really pissed, you can reach the Times' Public Editor at public@nytimes.com. :)"
+          $scope.headline = '' // need this to remove any headline from a previous search
           return;
          } else {
 
@@ -94,36 +98,64 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
   };
 });
 
-// ================== Quora.com results ===================================
-needGoodReadApp.controller('QuoraController', function($scope) {
+// // ================== Quora.com results ===================================
+needGoodReadApp.controller('QuoraController', function($scope, $http) {
   $scope.QuoraSearch = function (input) {
-    console.log('script-controller.js line 81. QuoraController: input is: ', input);
-    // ==================== x-ray to scrape Quora.com 
+    console.log('script-controller.js l101: QuoraController input (request) = ', input);
 
-    var Xray = require('x-ray');
-    var x = Xray();
-    var QuoraQURL;
-    var QuoraQuestion;
+    $http.post('/QuoraRequest', {search: input}).then(function(qtext){
 
-    x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
-      QQuestionLink: x('.question_link @href'),
-      QQuestion:  x('.rendered_qtext')
-    }])
-    (function(err, qtext) {
-      console.log(qtext);
-      QuoraQURL = qtext[0].QQuestionLink;
-      QuoraQuestion = qtext[0].QQuestion;
-        // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
-        // console.log('QuoraQuestion = ', qtext[0].QQuestion);
-      console.log('QuoraQURL from var = ', QuoraQURL);
-      console.log('QuoraQuestion from var = ', QuoraQuestion);
-    }); 
+      // var QuoraResultsObj = resp;
 
-    $scope.QuoraQuestion = QuoraQuestion;
-    var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input};
-    console.log('script-controller.js line 87. QuoraController: topicURL is: ', topicURL);
-  }
-})
+      // var QuoraQURL = body[0].QQuestionLink;
+      // var QuoraQuestion = body[0].QQuestion;
+
+      console.log('script-controller.js l107: QuoraController: body = ', qtext);
+      $scope.QuoraQuestion1 = qtext.data[0].QQuestion;
+      $scope.QuoraURL1 = qtext.data[0].QQuestionLink;
+      $scope.QuoraQuestion2 = qtext.data[2].QQuestion;
+      $scope.QuoraURL2 = qtext.data[2].QQuestionLink;
+
+      // $scope.topicURL = 'https://www.quora.com/topic/' + input;
+  //   // var require = function(path) {
+  //   //   return module.exports;
+  //   }
+    // require('QuoraQuestion');
+    // require('QuoraQURL');
+    // console.log('script-controller.js line 81. QuoraController: input is: ', input);
+    // console.log('QuoraQURL from var = ', QuoraQURL);
+    // console.log('QuoraQuestion from var = ', QuoraQuestion);
+
+    })
+  };
+});
+
+//     // ==================== x-ray to scrape Quora.com 
+
+//     var Xray = require('x-ray');
+//     var x = Xray();
+//     var QuoraQURL;
+//     var QuoraQuestion;
+
+//     x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
+//       QQuestionLink: x('.question_link @href'),
+//       QQuestion:  x('.rendered_qtext')
+//     }])
+//     (function(err, qtext) {
+//       console.log(qtext);
+//       QuoraQURL = qtext[0].QQuestionLink;
+//       QuoraQuestion = qtext[0].QQuestion;
+//         // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
+//         // console.log('QuoraQuestion = ', qtext[0].QQuestion);
+//       console.log('QuoraQURL from var = ', QuoraQURL);
+//       console.log('QuoraQuestion from var = ', QuoraQuestion);
+//     }); 
+
+    // $scope.QuoraQuestion = QuoraQuestion;
+    // var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input};
+    // console.log('script-controller.js line 87. QuoraController: topicURL is: ', topicURL);
+  // }
+// })
 
   // alternates for default image:
     // $scope.image = "assets/shadow divers.jpeg"

@@ -22,6 +22,7 @@ app.post('/request', function (req, res) {
         else {
     var json = parser.toJson(body);
     // console.log("to json -> %s", json.GoodreadsResponse);
+    console.log('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search);
 	res.send(json);}
   });
   console.log('I am successfully receiving a GET request...');
@@ -50,32 +51,38 @@ app.listen(port);
 
 console.log('Time for a Good Read? app listening on port ' + port + ', defined by process.env.port');
 
-// =================================================
-// x-ray to scrape Quora.com:
+app.post('/QuoraRequest', function (req, res) {
+  console.log('index.js l. 55: QuoraRequest req.body.search ', req.body.search);
 
-  // var Xray = require('x-ray');
-  // var x = Xray();
-  // var x = new Xray();
+// ==========================  x-ray to scrape Quora.com:
 
-// var QuoraQURL;
-// var QuoraQuestion;
+  var Xray = require('x-ray');
+  var x = Xray();
 
-// x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
-//   QQuestionLink: x('.question_link @href'),
-//   QQuestion:  x('.rendered_qtext')
-// }])
-// (function(err, qtext) {
-//   console.log(qtext);
-//   QuoraQURL = qtext[0].QQuestionLink;
-//   QuoraQuestion = qtext[0].QQuestion;
-//   // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
-//   // console.log('QuoraQuestion = ', qtext[0].QQuestion);
-//   console.log('QuoraQURL from var = ', QuoraQURL);
-//    console.log('QuoraQuestion from var = ', QuoraQuestion);
-// }); 
+var QuoraQURL;
+var QuoraQuestion;
 
-// module.exports = QuoraQuestion;
-// module.exports = QuoraQURL;
+x('https://www.quora.com/topic/' + req.body.search, '.QuestionText', [{
+  QQuestionLink: x('.question_link @href'),
+  QQuestion:  x('.rendered_qtext')
+}])
+(function(err, qtext) {
+  // console.log('index.js l 71: qtext = ', qtext);
+  QuoraQURL = qtext[0].QQuestionLink;
+  QuoraQuestion = qtext[0].QQuestion;
+  // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
+  // console.log('QuoraQuestion = ', qtext[0].QQuestion);
+  console.log('QuoraQURL from var = ', QuoraQURL);
+  console.log('QuoraQuestion from var = ', QuoraQuestion);
+
+  // res.send(QuoraQuestion, QuoraQURL);
+  // express deprecated res.send(status, body): Use res.status(status).send(body) instead index.js:80:7
+  // res.status(status).send(QuoraQuestion)
+
+  res.send(qtext);
+}); 
+});
+
 
 // from John when working it out:
 // x('https://www.quora.com/topic/Bitcoin', '.question_text', [
