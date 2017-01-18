@@ -21,7 +21,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.searchRequest = function(input){
     $http.post('/request', {search: input}).then(function(resp){
       console.log('script-controller.js l 21: mainController / Goodreads input (request) = ', input);
-      // console.log('resp = ', resp);    
+      console.log('script-controller.js l 24: search result object: ', resp.data.GoodreadsResponse.search.results);  
       $scope.title = resp.data.GoodreadsResponse.search.results.work[0].best_book.title;
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
@@ -51,7 +51,7 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
 
       var NYTresultsObj = resp.data.response.docs;
 
-      console.log('script-controller.js l40: NYTController: NYTresultsObj = ', NYTresultsObj);
+      console.log('script-controller.js l54: NYTController: NYTresultsObj = ', NYTresultsObj);
  
       if(!resp.data.response.docs[9].lead_paragraph) {$scope.lead = "Sorry, no result returned."} else {
         $scope.lead = resp.data.response.docs[9].lead_paragraph;
@@ -104,12 +104,16 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
     console.log('script-controller.js l101: QuoraController input (request) = ', input);
 
     $http.post('/QuoraRequest', {search: input}).then(function(qtext){
-
+console.log('qtext = ', qtext);
       // var QuoraResultsObj = resp;
 
       // var QuoraQURL = body[0].QQuestionLink;
       // var QuoraQuestion = body[0].QQuestion;
-
+      if(qtext.data.length === 0) {
+        $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term.";
+        $scope.QuoraQuestion2 = "Must be a weird one because they have all kids of silly stuff on there.";
+        return;
+      } else {
       console.log('script-controller.js l107: QuoraController: body = ', qtext);
       $scope.QuoraQuestion1 = qtext.data[0].QQuestion;
       $scope.QuoraURL1 = qtext.data[0].QQuestionLink;
@@ -121,8 +125,8 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
       $scope.QuoraURL4 = qtext.data[3].QQuestionLink;
       $scope.QuoraQuestion5 = qtext.data[4].QQuestion;
       $scope.QuoraURL5 = qtext.data[4].QQuestionLink;
-
-    })
+      };
+    });
   };
 });
 

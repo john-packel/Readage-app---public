@@ -67,13 +67,17 @@ x('https://www.quora.com/topic/' + req.body.search, '.QuestionText', [{
   QQuestion:  x('.rendered_qtext')
 }])
 (function(err, qtext) {
-  // console.log('index.js l 71: qtext = ', qtext);
-  QuoraQURL = qtext[0].QQuestionLink;
-  QuoraQuestion = qtext[0].QQuestion;
-  // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
-  // console.log('QuoraQuestion = ', qtext[0].QQuestion);
-  console.log('QuoraQURL from var = ', QuoraQURL);
-  console.log('QuoraQuestion from var = ', QuoraQuestion);
+  console.log('index.js l 71: qtext = ', qtext);
+  // if(qtext === undefined) {
+  //       $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term. Must be a weird one because they have all kids of silly stuff on there.";
+        
+  //     };
+  // QuoraQURL = qtext[0].QQuestionLink;
+  // QuoraQuestion = qtext[0].QQuestion;
+  // // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
+  // // console.log('QuoraQuestion = ', qtext[0].QQuestion);
+  // console.log('QuoraQURL from var = ', QuoraQURL);
+  // console.log('QuoraQuestion from var = ', QuoraQuestion);
 
   // res.send(QuoraQuestion, QuoraQURL);
   // express deprecated res.send(status, body): Use res.status(status).send(body) instead index.js:80:7
