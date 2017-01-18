@@ -112,6 +112,9 @@ console.log('qtext = ', qtext);
       if(qtext.data.length === 0) {
         $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term.";
         $scope.QuoraQuestion2 = "Must be a weird one because they have all kids of silly stuff on there.";
+        $scope.QuoraQuestion3 = '';
+        $scope.QuoraQuestion4 = '';
+        $scope.QuoraQuestion5 = '';
         return;
       } else {
       console.log('script-controller.js l107: QuoraController: body = ', qtext);
