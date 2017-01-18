@@ -122,46 +122,9 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
       $scope.QuoraQuestion5 = qtext.data[4].QQuestion;
       $scope.QuoraURL5 = qtext.data[4].QQuestionLink;
 
-      // $scope.topicURL = 'https://www.quora.com/topic/' + input;
-  //   // var require = function(path) {
-  //   //   return module.exports;
-  //   }
-    // require('QuoraQuestion');
-    // require('QuoraQURL');
-    // console.log('script-controller.js line 81. QuoraController: input is: ', input);
-    // console.log('QuoraQURL from var = ', QuoraQURL);
-    // console.log('QuoraQuestion from var = ', QuoraQuestion);
-
     })
   };
 });
-
-//     // ==================== x-ray to scrape Quora.com 
-
-//     var Xray = require('x-ray');
-//     var x = Xray();
-//     var QuoraQURL;
-//     var QuoraQuestion;
-
-//     x('https://www.quora.com/topic/Bitcoin', '.QuestionText', [{
-//       QQuestionLink: x('.question_link @href'),
-//       QQuestion:  x('.rendered_qtext')
-//     }])
-//     (function(err, qtext) {
-//       console.log(qtext);
-//       QuoraQURL = qtext[0].QQuestionLink;
-//       QuoraQuestion = qtext[0].QQuestion;
-//         // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
-//         // console.log('QuoraQuestion = ', qtext[0].QQuestion);
-//       console.log('QuoraQURL from var = ', QuoraQURL);
-//       console.log('QuoraQuestion from var = ', QuoraQuestion);
-//     }); 
-
-    // $scope.QuoraQuestion = QuoraQuestion;
-    // var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input};
-    // console.log('script-controller.js line 87. QuoraController: topicURL is: ', topicURL);
-  // }
-// })
 
   // alternates for default image:
     // $scope.image = "assets/shadow divers.jpeg"

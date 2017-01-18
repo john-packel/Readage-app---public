@@ -113,7 +113,7 @@
     </div>
 
     <div id="middle">
-      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="subject or author" style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
+      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="enter subject or author" required style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
       <br> <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
       <h2>
         <a style="color: green;font-weight: bold">Title: </a> {{ title }}
@@ -163,7 +163,7 @@
 console.log('topicURL is: ', topicURL);
 </script> -->
 <h2>
-<a href="{{topicURL}}" style="color: green;font-weight: bold">Topic page on Quora.com matching your search</a>
+<a href="{{topicURL}}" target="_blank" style="color: green;font-weight: bold">Topic page on Quora.com matching your search</a>
 </h2>
 <button class="QuoraSearch" ng-model="QuoraSearch" style="color: brown" ng-click="QuoraSearch(input)">Click to see Quora results for your search term</button><br>
 
