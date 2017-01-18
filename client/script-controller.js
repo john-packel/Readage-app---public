@@ -113,8 +113,14 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
       console.log('script-controller.js l107: QuoraController: body = ', qtext);
       $scope.QuoraQuestion1 = qtext.data[0].QQuestion;
       $scope.QuoraURL1 = qtext.data[0].QQuestionLink;
-      $scope.QuoraQuestion2 = qtext.data[2].QQuestion;
-      $scope.QuoraURL2 = qtext.data[2].QQuestionLink;
+      $scope.QuoraQuestion2 = qtext.data[1].QQuestion;
+      $scope.QuoraURL2 = qtext.data[1].QQuestionLink;
+      $scope.QuoraQuestion3 = qtext.data[2].QQuestion;
+      $scope.QuoraURL3 = qtext.data[2].QQuestionLink;
+      $scope.QuoraQuestion4 = qtext.data[3].QQuestion;
+      $scope.QuoraURL4 = qtext.data[3].QQuestionLink;
+      $scope.QuoraQuestion5 = qtext.data[4].QQuestion;
+      $scope.QuoraURL5 = qtext.data[4].QQuestionLink;
 
       // $scope.topicURL = 'https://www.quora.com/topic/' + input;
   //   // var require = function(path) {
