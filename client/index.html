@@ -44,9 +44,8 @@ a:hover {
   float:left;
   margin-left: 30px
 }*/
-
-    </style>  
-    <!-- 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. 
+    </style>      
+<!-- ==================== note: 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. ====================================
     But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
     And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
 
@@ -55,11 +54,11 @@ a:hover {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
-
   </head>
-<body>
 
-   <!--  <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
+  <body>
+<!--  ================== this was interesting but kinda annoying (& 1990s) ===========
+   <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
       <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: brown"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</span><br>
       <script type="text/javascript">
         function scroll() {
@@ -74,34 +73,24 @@ a:hover {
       </script>
     </div> -->
 
-    <!-- <h5> -->
-<a style="color: brown;  "> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</a>
-<!-- <br> -->
-<!-- </h5> -->
-
-
+  <a style="color: brown;  "> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</a>
 <!--      <img style="float: left; margin-left: 10px; width: 11%; height: 11%;" src="assets/Readage_logo_paid.png">  -->
 <!-- <img style="float: left; margin-left: 10px; width: 15%; height: 15%;" src="assets/Readage logo w tag on book.png">  -->
-<br>
- <img style="float: left; margin-left: 15px; width: 14%; height: 14%;" src="assets/Readage logo mock transparent.png"> 
-
+  <br>
+  <img style="float: left; margin-left: 15px; width: 14%; height: 14%;" src="assets/Readage logo mock transparent.png"> 
 <!--  <h5><br><br>
-<a style="color: brown; float: left; margin-left: 50px "> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</a></h5> -->
-<!-- <h4>
-<a style="color: brown; margin-left: 510px;"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</a></h4> -->
-<!-- <h2> -->
+
      <!-- <a style="float: left; color: #822020;font-weight: bold;">find your good words</a><br> -->
        <!-- </h2> -->
-
     <!--   <img style="float: left; margin-left: 15px; width: 7.5%; height: 7.5%;" src="assets/Readage logo words with tagline.png"> -->
 
-    <div ng-controller="mainController" class="centered" id="main">
-    <div id="right-side-page" style="float: right">
+  <div ng-controller="mainController" class="centered" id="main">
+  <div id="right-side-page" style="float: right">
     <br>
-      <img style="padding: 1px; margin: 0px; width: 40%; height: 40%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
-      <h4>
-        {{ message }}
-      </h4> 
+    <img style="padding: 1px; margin: 0px; width: 40%; height: 40%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
+    <h4>
+      {{ message }}
+    </h4> 
 
     <hr style="width: 50%">
     <h2>
@@ -113,86 +102,87 @@ a:hover {
 
     <hr style="width: 50%">
     
-  <h2>
-   <a style="color: green;font-weight: bold">Book blog corner</a>
-  </h2> 
-      <h4>
+    <h2>
+      <a style="color: green;font-weight: bold">Book blog corner</a>
+    </h2> 
+    <h4>
       <p style="color: brown">Check out my daughter's awesome blog - BOOK WISH: the confessions of a bookaholic</p>  
-      </h4>
+    </h4>
       <a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:60px;height:60px; border: 1px solid black;padding: 3px; vertical-align: middle"></a></p>
 
       <!-- <h3> -->
-        <a> Sophie's current top recommendations:</a>
+      <a> Sophie's current top recommendations:</a>
       <!-- </h3> -->
-      <h5>
-        <a href="http://amzn.to/2idC0qo" target="_blank" style="color: blue">Before I Fall (by Lauren Oliver)</a>&nbsp&nbsp|&nbsp&nbsp
-       </a>
-        <a href="http://amzn.to/2jg259Y" target="_blank" style="color: green">The Lunar Chronicles (by Marissa Meyer)</a>&nbsp&nbsp|&nbsp&nbsp</a>
-        <a href="http://amzn.to/2iaEISo" target="_blank" style="color: blue">A Court of Mist & Fury (by Sarah J. Maas)</a>
-      </h5> 
+    <h5>
+      <a href="http://amzn.to/2idC0qo" target="_blank" style="color: blue">Before I Fall (by Lauren Oliver)</a>&nbsp&nbsp|&nbsp&nbsp
+      </a>
+      <a href="http://amzn.to/2jg259Y" target="_blank" style="color: green">The Lunar Chronicles (by Marissa Meyer)</a>&nbsp&nbsp|&nbsp&nbsp</a>
+      <a href="http://amzn.to/2iaEISo" target="_blank" style="color: blue">A Court of Mist & Fury (by Sarah J. Maas)</a>
+    </h5> 
     <!-- </div> -->
 <!-- <br> <br> -->
-<hr style="width: 50%">
+      <hr style="width: 50%">
     <h2>
-        <a style="color: green;font-weight: bold">For the book buyer</a>
-      </h2> 
-      <h4 style="color: brown">
-        Grab some Dostoyevsky, take a deep dive with the inimitable Robert Kurson or get your personal finance game on
-      </h4>  
+      <a style="color: green;font-weight: bold">For the book buyer</a>
+    </h2> 
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
+    <h4 style="color: brown">Grab some Dostoyevsky, take a deep dive with the inimitable Robert Kurson or get your personal finance game on
+    </h4>  
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe>
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B01GMHC8B8&asins=B01GMHC8B8&linkId=e38c87df852368983c555e6f2d34b26e&show_border=true&link_opens_in_new_window=true"></iframe>
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe>
 
-<br>
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B01GMHC8B8&asins=B01GMHC8B8&linkId=e38c87df852368983c555e6f2d34b26e&show_border=true&link_opens_in_new_window=true"></iframe>
 
-<hr style="width: 50%">
+    <br>
+
+    <hr style="width: 50%">
     <h2>
-        <a style="color: green;font-weight: bold">Books & words gallery</a>
-      </h2> 
-<img style="width: 40%; height: 40%" src="assets/book stack shakespeare edit.jpg">
-<img style="width: 18%; height: 18%; margin-left: 20px" src="assets/book stairs.jpg"><br>
-</div>
+      <a style="color: green;font-weight: bold">Books & words gallery</a>
+    </h2> 
 
-<!-- image only:
+    <img style="width: 40%; height: 40%" src="assets/book stack shakespeare edit.jpg">
+    <img style="width: 18%; height: 18%; margin-left: 20px" src="assets/book stairs.jpg"><br>
+  </div>
+
+<!-- ================   alternate option for Amazon ads (image only) ===============
 <a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
 
+    <br><br><br><br><br><br>
+    <hr style="width: 35%; float: left; margin-left: 20px">
+    <br><br>
   
-
-<br><br><br><br><br><br>
-<hr style="width: 35%; float: left; margin-left: 20px">
-<br><br>
-    <div id="middle">
-      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px;  width: 180px; line-height: 15px; color: brown;  font-size: 10pt">
+  <div id="middle">
+    <form ng-submit="searchRequest(input)">
+      <input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px;  width: 180px; line-height: 15px; color: brown;  font-size: 10pt">
       <input type="Submit" style="color: brown; margin-left: 10px">
-      </form>
-      <br><img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
-      <h2>
-        <a style="color: green;font-weight: bold">Title: </a> {{ title }}
-        <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
-        <a style="color: green;font-weight: bold">Average rating: </a> {{ rating }}  
-        <a style="color: green;font-weight: bold">|   Original publication year: </a>{{ year }}
-      </h2>
-      <h3>  
-        <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
-      </h3>
-    </div>
+    </form>
+    <br>
+    <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
+    <h2>
+      <a style="color: green;font-weight: bold">Title: </a> {{ title }}
+      <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
+      <a style="color: green;font-weight: bold">Average rating: </a> {{ rating }}  
+      <a style="color: green;font-weight: bold">|   Original publication year: </a>{{ year }}
+    </h2>
+    <h3>  
+      <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
+    </h3>
+  </div>
 
-<hr style="width: 30%">
-
-    <div ng-controller="NYTController">
-      <h2>
-        <a style="color: green;font-weight: bold">Results from the New York Times</a>
-      </h2> 
+    <hr style="width: 30%">
+  <div ng-controller="NYTController">
+    <h2>
+      <a style="color: green;font-weight: bold">Results from the New York Times</a>
+    </h2> 
       <button class="NYTSearch" ng-model="NYTSearch" style="color: brown" ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
      
-       <!-- <table> -->
+<!-- =========  need to display more results and use ng-reate =========== <table> -->
         <!-- <p ng-repeat="lead in results.leads track by $index"> -->
            <!-- <a style="color: green;font-weight: bold">Lead: </a> {{ lead }} <br> -->
           <!-- <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br> -->
@@ -200,71 +190,61 @@ a:hover {
            <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
           <!-- </tr> -->
              <!-- </table>  -->
-      <h3> 
-        <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
-      </h3>
-      <h4>   
-        <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br>
-        <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
-        <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br>
-        <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br>
-      </h4> 
+    <h3> 
+      <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
+    </h3>
+    <h4>   
+      <a style="color: green;font-weight: bold">Author: </a> {{ NYTauthor }}<br><br>
+      <a style="color: green;font-weight: bold">Date: </a> {{ pubdate }}<br><br>
+      <a style="color: green;font-weight: bold">Section: </a> {{ section }}<br><br>
+      <a style="color: green;font-weight: bold">Lead: </a> {{ lead }}<br>
+    </h4> 
      
-    </div>
+  </div>
     <hr style="width: 30%">
 
-<!-- var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input}; -->
-<div ng-controller='QuoraController'>
-
-<!-- <script type="text/javascript">
-  var topicURL = 'https://www.quora.com/topic/Bitcoin' + {search: input};
-console.log('topicURL is: ', topicURL);
-</script> -->
-<h2>
-<a href="{{topicURL}}" target="_blank" style="color: green;font-weight: bold">Search Quora.com for this topic</a>
-</h2>
-<button class="QuoraSearch" ng-model="QuoraSearch" style="color: brown" ng-click="QuoraSearch(input)">Click to see Quora results for your search term</button><br>
-
-<h4>   
-        <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL1}}">{{ QuoraQuestion1 }}</a> <br><br>
-        <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL2}}">{{ QuoraQuestion2 }}</a> <br><br>
-        <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL3}}">{{ QuoraQuestion3 }}</a> <br><br>
-        <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL4}}">{{ QuoraQuestion4 }}</a> <br><br>
-        <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL5}}">{{ QuoraQuestion5 }}</a> <br>
-       <!--  <a style="color: green;font-weight: bold">Link: </a> {{ QuoraURL }}<br>
-        <br> -->
-        </h4>
-
-</div>
-
+  <div ng-controller='QuoraController'>
+    <h2>
+      <a href="{{topicURL}}" target="_blank" style="color: green;font-weight: bold">Search Quora.com for this topic</a>
+    </h2>
+      <button class="QuoraSearch" ng-model="QuoraSearch" style="color: brown" ng-click="QuoraSearch(input)">Click to see Quora results for your search term</button><br>
+    <h4>   
+      <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL1}}">{{ QuoraQuestion1 }}</a> <br><br>
+      <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL2}}">{{ QuoraQuestion2 }}</a> <br><br>
+      <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL3}}">{{ QuoraQuestion3 }}</a> <br><br>
+      <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL4}}">{{ QuoraQuestion4 }}</a> <br><br>
+      <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL5}}">{{ QuoraQuestion5 }}</a> <br>
+    </h4>
+  </div>
 
 <!-- ============= Twitter widget - will replace with my own ================ -->
     <hr style="width: 30%"><br>
-    <a class="twitter-timeline" data-widget-id="809944434095820800"></a>
+      <a class="twitter-timeline" data-widget-id="809944434095820800"></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</p> 
-
- <footer class="primary-footer container group">
-       
-          <p>Created by John Packel</p> 
-          <a href="https://twitter.com/jpackel" target="blank">  Twitter&nbsp&nbsp|&nbsp&nbsp</a>    <a href="https://www.facebook.com/john.packel/photos?source_ref=pb_friends_tl" target="blank">   Facebook&nbsp&nbsp|&nbsp&nbsp</a>  <a href="https://www.quora.com/profile/John-Packel" target="blank">  Quora&nbsp&nbsp|&nbsp&nbsp</a>  <a href="https://github.com/john-packel" target="blank">  Github  </a> 
-         <p>Like this site? Send me Bitcoin! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
-    </footer>
+      </p>  <!-- should be </a>? -->
+    <br><br>
+ 
+  <footer class="primary-footer container group">
+      <p>Created by John Packel</p> 
+      <a href="https://twitter.com/jpackel" target="blank">Twitter&nbsp&nbsp|&nbsp&nbsp</a>
+      <a href="https://www.facebook.com/john.packel/photos?source_ref=pb_friends_tl" target="blank">Facebook&nbsp&nbsp|&nbsp&nbsp</a> 
+      <a href="https://www.quora.com/profile/John-Packel" target="blank">Quora&nbsp&nbsp|&nbsp&nbsp</a>  
+      <a href="https://github.com/john-packel" target="blank">Github</a> 
+      <p>Like this site? Send me Bitcoin! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
+  </footer>
 
   <script src="script-controller.js"></script>
-  <!-- <script src="quote-controller.js"></script> -->
-
-  </body>
+<!-- <script src="quote-controller.js"></script> -->
 </html>
 
-         <!-- several options for hardcoding the Twitter widget until I build my own w/ API:  -->      
-                      <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=Dostoyevsky" data-widget-id={{id}}>Tweets about {{author}}</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-                   <!--    <a class="twitter-timeline"  href="https://twitter.com/search?q=personal%20finance" data-widget-id="810273670765670404">Tweets about personal finance</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+<!-- ========== options for hardcoding the Twitter widget until I build my own w/ API:  -->    
+      <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=Dostoyevsky" data-widget-id={{id}}>Tweets about {{author}}</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+      <!--    <a class="twitter-timeline"  href="https://twitter.com/search?q=personal%20finance" data-widget-id="810273670765670404">Tweets about personal finance</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
           
-            <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=shadow%20divers" data-widget-id="810277797830815744">Tweets about shadow divers</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+      <!-- <a class="twitter-timeline"  href="https://twitter.com/search?q=shadow%20divers" data-widget-id="810277797830815744">Tweets about shadow divers</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
 
-           <!--              <a class="twitter-timeline"  href="https://twitter.com/search?q=kurt%20vonnegut" data-widget-id="810278544878215168">Tweets about kurt vonnegut</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+      <!--              <a class="twitter-timeline"  href="https://twitter.com/search?q=kurt%20vonnegut" data-widget-id="810278544878215168">Tweets about kurt vonnegut</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->

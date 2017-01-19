@@ -62,42 +62,39 @@ app.post('/QuoraRequest', function (req, res) {
 var QuoraQURL;
 var QuoraQuestion;
 
-// QuestionQueryResult PagedListItem QueryResult question_query_result
-
 // x('https://www.quora.com/search?q=george+bush', '.QueryResults', [{
 //   QQuestionLink: x('.question_link @href'),
 //   QQuestion:  x('.rendered_qtext')
 // 
-console.log('replace = ', req.body.search.replace(' ', '+'));
-x('https://www.quora.com/search?q=' + req.body.search.replace(' ','+'), '.pagedlist_item', [{
+var space = / /gi;
+var replacedValue = req.body.search.replace(space, '+');
+console.log('replacedValue = ', replacedValue);
+// previous before replace fix above: x('https://www.quora.com/search?q=' + req.body.search.replace(' ','+'), '.pagedlist_item', [{
+
+x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
   QQuestionLink: x('.question_link @href'),
   QQuestion:  x('.rendered_qtext')
 }])
 // (function(err, qtext) {
 //   console.log('index.js l 71: qtext = ', qtext);
 
-
+// working code John M helped me figure out:
 // x('https://www.quora.com/topic/' + req.body.search, '.QuestionText', [{
 //   QQuestionLink: x('.question_link @href'),
 //   QQuestion:  x('.rendered_qtext')
 // }])
 (function(err, qtext) {
   console.log('index.js l 71: qtext = ', qtext);
-  console.log('search string = ', 'https://www.quora.com/search?q=' + req.body.search);
-  // if(qtext === undefined) {
-  //       $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term. Must be a weird one because they have all kids of silly stuff on there.";
-        
-  //     };
+  console.log('search string = ', 'https://www.quora.com/search?q=' + req.body.search.replace(' ','+'));
+  if(qtext === undefined) {
+        $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term. Must be a weird one because they have all kids of silly stuff on there.";
+      };
   // QuoraQURL = qtext[0].QQuestionLink;
   // QuoraQuestion = qtext[0].QQuestion;
   // // console.log('QuoraQURL = ', qtext[0].QQuestionLink);
   // // console.log('QuoraQuestion = ', qtext[0].QQuestion);
   // console.log('QuoraQURL from var = ', QuoraQURL);
   // console.log('QuoraQuestion from var = ', QuoraQuestion);
-
-  // res.send(QuoraQuestion, QuoraQURL);
-  // express deprecated res.send(status, body): Use res.status(status).send(body) instead index.js:80:7
-  // res.status(status).send(QuoraQuestion)
 
   res.send(qtext);
 }); 

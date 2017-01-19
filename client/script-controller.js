@@ -141,6 +141,14 @@ console.log('qtext = ', qtext);
         return;
       } else {
       console.log('script-controller.js l107: QuoraController: body = ', qtext);
+      // check for any missing question URLs and replace w/ topic URL from above
+      for(var dataCheck = 0; dataCheck < qtext.data.length; dataCheck++) {
+        console.log('checking index... ', dataCheck);
+        if(!qtext.data[dataCheck].QQuestionLink) {
+          console.log('QQ URL missing for index ', dataCheck, '. Replacing with ', 'https://www.quora.com/search?q=' + input.replace(' ','+'));
+          qtext.data[dataCheck].QQuestionLink = 'https://www.quora.com/search?q=' + input.replace(' ','+');
+        }
+      };
       $scope.QuoraQuestion1 = qtext.data[0].QQuestion;
       $scope.QuoraURL1 = qtext.data[0].QQuestionLink;
       $scope.QuoraQuestion2 = qtext.data[1].QQuestion;
