@@ -50,7 +50,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
       $scope.synopsis = '';
-      $scope.topicURL = 'https://www.quora.com/topic/' + input;
+      $scope.topicURL = 'https://www.quora.com/search?q=' + input.replace(' ','+');
       // $scope.synopsis = resp.data.GoodreadsResponse.book.description; // need to make 2nd API call to get this
     });
   };
@@ -127,12 +127,13 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
 
     $http.post('/QuoraRequest', {search: input}).then(function(qtext){
 console.log('qtext = ', qtext);
+
       // var QuoraResultsObj = resp;
 
       // var QuoraQURL = body[0].QQuestionLink;
       // var QuoraQuestion = body[0].QQuestion;
       if(qtext.data.length === 0) {
-        $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term.";
+        $scope.QuoraQuestion1 = "Sorry, there are no Quora results for this search term.";
         $scope.QuoraQuestion2 = "Must be a weird one because they have all kids of silly stuff on there.";
         $scope.QuoraQuestion3 = '';
         $scope.QuoraQuestion4 = '';

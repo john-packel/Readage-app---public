@@ -22,7 +22,7 @@ app.post('/request', function (req, res) {
         else {
     var json = parser.toJson(body);
     // console.log("to json -> %s", json.GoodreadsResponse);
-    console.log('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search);
+    console.log('index.js l. 25. search string: https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search);
 	res.send(json);}
   });
   console.log('I am successfully receiving a GET request...');
@@ -62,12 +62,28 @@ app.post('/QuoraRequest', function (req, res) {
 var QuoraQURL;
 var QuoraQuestion;
 
-x('https://www.quora.com/topic/' + req.body.search, '.QuestionText', [{
+// QuestionQueryResult PagedListItem QueryResult question_query_result
+
+// x('https://www.quora.com/search?q=george+bush', '.QueryResults', [{
+//   QQuestionLink: x('.question_link @href'),
+//   QQuestion:  x('.rendered_qtext')
+// 
+console.log('replace = ', req.body.search.replace(' ', '+'));
+x('https://www.quora.com/search?q=' + req.body.search.replace(' ','+'), '.pagedlist_item', [{
   QQuestionLink: x('.question_link @href'),
   QQuestion:  x('.rendered_qtext')
 }])
+// (function(err, qtext) {
+//   console.log('index.js l 71: qtext = ', qtext);
+
+
+// x('https://www.quora.com/topic/' + req.body.search, '.QuestionText', [{
+//   QQuestionLink: x('.question_link @href'),
+//   QQuestion:  x('.rendered_qtext')
+// }])
 (function(err, qtext) {
   console.log('index.js l 71: qtext = ', qtext);
+  console.log('search string = ', 'https://www.quora.com/search?q=' + req.body.search);
   // if(qtext === undefined) {
   //       $scope.QuoraQuestion1 = "Sorry, there are no Quora.com results for this search term. Must be a weird one because they have all kids of silly stuff on there.";
         
