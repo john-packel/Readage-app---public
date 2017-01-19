@@ -13,6 +13,34 @@
        /*border: 5px solid black;*/
        font-family: 'Abel', sans-serif;
      }
+     footer {
+   /*position:fixed;*/
+  /* left: 0px;*/
+  text-align: center;
+  padding-top: 5px;
+   /*top: 15px;*/
+   bottom:30px;
+   height:90px;
+   /*width: 500px;*/
+
+   /*margin-left: 500px;*/
+
+/*opacity: 0.8;*/
+     color: white;
+  font-size: 14px;
+  font-weight: 400;
+    line-height: 10px;
+   background: #2971a5;
+   /*text-align: center;*/
+   vertical-align: text-bottom;
+   display: block;
+  margin: 10px;
+}
+a:hover {
+    background-color: beige;
+    /*line-height: 30px;*/
+}
+
     </style>  
     <!-- 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. 
     But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
@@ -183,26 +211,12 @@ console.log('topicURL is: ', topicURL);
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p> 
 
-<!-- <div ng-controller="quoteController"> -->
-
-<!--   <div ng-controller="quoteController" id="scrollcontainer"  style="postion:relative; overflow:hidden; width:50%;">
-      <span id="scrolltext" style="position:absolute; whitespace:nowrap"> {{ message }} </span>
-    
-    <script type="text/javascript">
-      function scroll() {
-        $('#scrolltext').css('left', $('#scrollcontainer').width());
-        $('#scrolltext').animate({
-        left: '-='+($('#scrollcontainer').width()+$('#scrolltext').width())
-        }, 4000, function() {
-   // quoteChoice();
-          console.log('tester');
-          scroll();
-        });
-      }
-      scroll();
-            
-    </script>
-</div> <br> -->
+ <footer class="primary-footer container group">
+       
+          <p>Created by John Packel</p> 
+          <a href="https://twitter.com/jpackel" target="blank">  Twitter&nbsp&nbsp|&nbsp&nbsp</a>    <a href="https://www.facebook.com/john.packel/photos?source_ref=pb_friends_tl" target="blank">   Facebook&nbsp&nbsp|&nbsp&nbsp</a>  <a href="https://www.quora.com/profile/John-Packel" target="blank">  Quora&nbsp&nbsp|&nbsp&nbsp</a>  <a href="https://github.com/john-packel" target="blank">  Github  </a> 
+         <p>Like this site? Send me Bitcoin! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
+    </footer>
 
   <script src="script-controller.js"></script>
   <!-- <script src="quote-controller.js"></script> -->
