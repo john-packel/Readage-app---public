@@ -2,7 +2,7 @@
 <html ng-app='need_a_good_read'> <!-- inject Angular -->
   <head>
     <meta charset="utf-8">
-    <title>Time for a Good Read?</title>
+    <title>Readage: find your good words</title>
     <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     
@@ -26,7 +26,8 @@
 
   </head>
 <body>
-    <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
+
+   <!--  <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
       <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: brown"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</span><br>
       <script type="text/javascript">
         function scroll() {
@@ -39,49 +40,31 @@
         }
         scroll();
       </script>
-    </div>
+    </div> -->
+    <!-- <img style="width: 10%; height: 10%" src="assets/book stack shakespeare edit.jpg"> -->
+  <img style="float: left; margin-left: 10px; width: 11%; height: 11%;" src="assets/readage logo paid.png">
+<h4>
+<a style="color: brown; margin-left: 510px;"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</a></h4>
+<h3>
+     <a style="float: left; color: green;font-weight: bold;">find your good words</a><br>
+       </h3>
 
     <div ng-controller="mainController" class="centered" id="main">
-      <!-- <h1 style="color: green">Need A Good Read?</h1> -->
-      <h3>
-        <img style="width: 25%; height: 25% " src="assets/TfaGR-full.png">
-        <!-- <a style="color: grey; font-style: italic; vertical-align: text-bottom;">search Goodreads & the New York Times</a>   -->
-      </h3>
-    <!-- </div>  -->
-
     <div id="right-side-page" style="float: right">
-      <img style="border: 3px solid black;padding: 1px; margin: 0px; width: 30%; height: 30%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
+      <img style="padding: 1px; margin: 0px; width: 40%; height: 40%" ng-src="http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg">
       <h4>
         {{ message }}
       </h4> 
 
     <hr style="width: 50%">
     <h2>
-      <a style="color: green;font-weight: bold">Recommended books on Goodreads</a>
+      <a style="color: green;font-weight: bold">Recommended on Goodreads</a>
     </h2>
     <p class="h_iframe">
-      <iframe src="Goodreads-widget-jp.html" style="width: 88%;height: 405px"></iframe>
+      <iframe src="Goodreads-widget-jp.html" style="width: 90%;height: 405px"></iframe>
     </p>
 
     <hr style="width: 50%">
-      <h2>
-        <a style="color: green;font-weight: bold">For your shopping convenience</a>
-      </h2> 
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe>
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B01GMHC8B8&asins=B01GMHC8B8&linkId=e38c87df852368983c555e6f2d34b26e&show_border=true&link_opens_in_new_window=true"></iframe>
-
-<!-- image only:
-<a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
-
-  <br> <br><hr style="width: 50%">
     
   <h2>
    <a style="color: green;font-weight: bold">Book blog corner</a>
@@ -98,12 +81,37 @@
        </a>
         <a href="http://amzn.to/2jg259Y" target="_blank" style="color: green">The Lunar Chronicles (by Marissa Meyer)</a>&nbsp&nbsp|&nbsp&nbsp</a>
         <a href="http://amzn.to/2iaEISo" target="_blank" style="color: blue">A Court of Mist & Fury (by Sarah J. Maas)</a>
-      </h4>
-    </div>
+      </h4> <br>
+    <!-- </div> -->
+<!-- <br> <br> -->
+<hr style="width: 50%">
+    <h2>
+        <a style="color: green;font-weight: bold">For your shopping convenience</a>
+      </h2> 
+      <h4>
+        Grab some Dostoyevsky, take a deep dive with the inimitable Robert Kurson or get your personal finance game on.
+      </h4>  
 
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
+
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
+
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
+
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe>
+
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B01GMHC8B8&asins=B01GMHC8B8&linkId=e38c87df852368983c555e6f2d34b26e&show_border=true&link_opens_in_new_window=true"></iframe>
+</div>
+<!-- image only:
+<a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
+
+  
+<hr style="width: 20%; float: left; margin-left: 25px"><br><br>
     <div id="middle">
-      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="enter subject or title" required style="line-height: 15px"><input type="Submit" style="margin: 5px; color: brown"></form>
-      <br> <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
+      <form ng-submit="searchRequest(input)"><input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px;  width: 180px; line-height: 15px;   font-size: 10pt">
+      <input type="Submit" style="color: brown; margin-left: 10px">
+      </form>
+      <br><img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
       <h2>
         <a style="color: green;font-weight: bold">Title: </a> {{ title }}
         <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
