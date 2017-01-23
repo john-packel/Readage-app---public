@@ -126,19 +126,20 @@ a:hover {
       <a style="color: green;font-weight: bold">For the book buyer</a>
     </h2> 
 
-    <h4 style="color: brown">Grab some Dostoyevsky, take a deep dive with the inimitable Robert Kurson or get your personal finance game on
+    <h4 style="color: brown">Grab some Dostoyevsky, take a deep dive with Robert Kurson, prepare for the blockchain revolution or learn to be a leader
     </h4>  
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
-
+   <!--  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0486415872&asins=0486415872&linkId=d37f19398e542d28d991bf252b3da75a&show_border=true&link_opens_in_new_window=true"></iframe>
+ -->
     <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
 
     <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
 
     <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe>
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B01GMHC8B8&asins=B01GMHC8B8&linkId=e38c87df852368983c555e6f2d34b26e&show_border=true&link_opens_in_new_window=true"></iframe>
-
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=1101980133&asins=1101980133&linkId=937aaecd488defd173117751a8aa7501&show_border=true&link_opens_in_new_window=true"></iframe>
+    
+    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000ESSSLG&asins=B000ESSSLG&linkId=5605103b9594a24b02197f64b5b20236&show_border=true&link_opens_in_new_window=true"></iframe>
     <br>
 
     <hr style="width: 50%">
@@ -163,7 +164,8 @@ a:hover {
       <input type="Submit" style="color: brown; margin-left: 10px">
     </form>
     <br>
-    <img ng-src="{{ image }}"></img> <!-- height="240" width="160"  -->
+    <a href="{{GRBookURL}}" target="_blank"><img ng-src="{{ GRBookImage }}"></img></a> <!-- height="240" width="160"  -->
+     <p style="color: brown">Click image to view book on Goodreads.com.</p>
     <h2>
       <a style="color: green;font-weight: bold">Title: </a> {{ title }}
       <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
@@ -173,6 +175,7 @@ a:hover {
     <h3>  
       <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
     </h3>
+
   </div>
 
     <hr style="width: 30%">

@@ -13,7 +13,8 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.author = "Fyodor Dostoyevsky";
   $scope.rating = "4.30";
   $scope.year = "1880";
-  $scope.image = "assets/brothers-karamazov.jpg";
+  $scope.GRBookImage = "assets/brothers-karamazov.jpg";
+  $scope.GRBookURL = "https://www.goodreads.com/book/show/4934";
   $scope.synopsis = "The award-winning translation of Dostoevsky's last and greatest novel. 'The Brothers Karamazov' is a passionate philosophical novel set in 19th-century Russia that enters deeply into the ethical debates regarding God, free will and morality. It is a spiritual drama of moral struggles concerning faith, doubt and reason, set against a modernizing Russia.";
 
   $scope.headline = "THE PLAY; Those Karamazovs Again";
@@ -48,8 +49,10 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
-      $scope.image = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
+      $scope.GRBookImage = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
+      $scope.GRBookURL = 'https://www.goodreads.com/book/show/' + resp.data.GoodreadsResponse.search.results.work[0].best_book.id.$t;
       $scope.synopsis = '';
+      // $scope.GRBookImage =
       $scope.topicURL = 'https://www.quora.com/search?q=' + input.replace(' ','+');
       // $scope.synopsis = resp.data.GoodreadsResponse.book.description; // need to make 2nd API call to get this
     });
