@@ -3,8 +3,8 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
 needGoodReadApp.controller('mainController', function($scope, $http) {
 // should I be using ng-init for these instead? 
   var quoteChoice = function(){
-    var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky'];
-    return quotes[parseInt(Math.random()*5)];
+    var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky', '"Celebrate the 150-year anniversary of Dostoyevsky\'s masterpiece, \'Crime and Punishment\'!" - John Packel'];
+    return quotes[parseInt(Math.random()*6)];
   }
   $scope.message = quoteChoice(); // module.exports = quoteChoice;
 
@@ -64,13 +64,13 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
     console.log('script-controller.js l37: NYTController input (request) = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
-      if(resp.data.response === undefined) {
+      if(resp.data.response.docs[0] === undefined) {
           console.log('Sorry, the New York Times is not returning search results for this term.');
-          $scope.NYTauthor = "Sorry, the New York Times is not returning search results for this term."
-          $scope.pubdate = "I know; what the dilly yo? Seriously."
-          $scope.section = " Please try another search using the input box at the top of the the page."
-          $scope.lead = "If you're really pissed, you can reach the Times' Public Editor at public@nytimes.com. :)"
-          $scope.headline = '' // need this to remove any headline from a previous search
+          $scope.NYTauthor = "Sorry, the New York Times is not returning search results for this term. What the dilly yo? \n Please try another search using the input box at the top of the the page. If you're really pissed, you can reach the Times' Public Editor at public@nytimes.com. :)"
+          $scope.pubdate = '' // need this to remove any headline from a previous search
+          $scope.section = ''
+          $scope.lead = ''
+          $scope.headline = '' 
           return;
          } else {
 
