@@ -25,9 +25,20 @@ app.post('/request', function (req, res) {
     console.log('index.js l. 25. search string: https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search);
 	res.send(json);}
   });
-  console.log('I am successfully receiving a GET request...');
   // example of book search by GR id - Brothers Karamazov - (to get description)
     // request('https://www.goodreads.com/book/show/4934.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body){
+});
+
+app.post('/requestSynopsis', function(req, res) {
+  console.log('index.js l. 33; request received from controller for requestSynopsis: ', req.body.search);
+  request('https://www.goodreads.com/book/show/' + req.body.search +'.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body) {
+    if(error) {
+      console.error('Error at l. 36 in index.js (server).');
+      return next(error);
+    } else {
+      var json = parser.toJson(body);
+   res.send(json)}
+  });
 });
 
 app.post('/NYTrequest', function (req, res) {

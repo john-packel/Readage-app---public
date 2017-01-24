@@ -1,6 +1,6 @@
 var needGoodReadApp = angular.module('need_a_good_read', []);
 // create the controller and inject Angular's $scope
-needGoodReadApp.controller('mainController', function($scope, $http) {
+needGoodReadApp.controller('mainController', function($scope, $http) { 
 // should I be using ng-init for these instead? 
   var quoteChoice = function(){
     var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky', '"Celebrate the 150-year anniversary of Dostoyevsky\'s masterpiece, \'Crime and Punishment\'!" - John Packel'];
@@ -29,42 +29,54 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
 
   $scope.topicURL = 'https://www.quora.com/topic/Fyodor-Dostoyevsky-author';
 
-  $scope.QuoraQuestion1 = "How do I read Dostoyevski's 'Crime and punishment'?"
-  $scope.QuoraURL1 = "https://www.quora.com/How-do-I-read-Dostoyevskis-Crime-and-punishment"
-  $scope.QuoraQuestion2 = "Which is the best among Dostoyevsky's novels, and why?"
-  $scope.QuoraURL2 = "https://www.quora.com/Which-is-the-best-among-Dostoyevskys-novels-and-why"
-  $scope.QuoraQuestion3 = "In what way did 'The Brothers Karamazov' influence you?"
-  $scope.QuoraURL3 = "https://www.quora.com/In-what-way-did-The-Brothers-Karamazov-influence-you"
-  $scope.QuoraQuestion4 = "Which Fyodor Dostoyevsky book shall I read to start with?"
-  $scope.QuoraURL4 = "https://www.quora.com/Which-Fyodor-Dostoyevsky-book-shall-I-read-to-start-with"
-  $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?"
-  $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much"
+  $scope.QuoraQuestion1 = "How do I read Dostoyevski's 'Crime and punishment'?";
+  $scope.QuoraURL1 = "https://www.quora.com/How-do-I-read-Dostoyevskis-Crime-and-punishment";
+  $scope.QuoraQuestion2 = "Which is the best among Dostoyevsky's novels, and why?";
+  $scope.QuoraURL2 = "https://www.quora.com/Which-is-the-best-among-Dostoyevskys-novels-and-why";
+  $scope.QuoraQuestion3 = "In what way did 'The Brothers Karamazov' influence you?";
+  $scope.QuoraURL3 = "https://www.quora.com/In-what-way-did-The-Brothers-Karamazov-influence-you";
+  $scope.QuoraQuestion4 = "Which Fyodor Dostoyevsky book shall I read to start with?";
+  $scope.QuoraURL4 = "https://www.quora.com/Which-Fyodor-Dostoyevsky-book-shall-I-read-to-start-with";
+  $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?";
+  $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much";
 
+  var GRBookID = ''; 
 
-  $scope.searchRequest = function(input){
-    $http.post('/request', {search: input}).then(function(resp){
-      console.log('script-controller.js l 21: mainController / Goodreads input (request) = ', input);
-      console.log('script-controller.js l 24: search result object: ', resp.data.GoodreadsResponse.search.results);  
+  $scope.searchRequest = function(input) {
+    $http.post('/request', {search: input}).then(function(resp) {
+      console.log('script-controller.js l 46: mainController / Goodreads input (request) = ', input);
+      console.log('script-controller.js l 47: Goodreads search result object: ', resp.data.GoodreadsResponse.search.results);
       $scope.title = resp.data.GoodreadsResponse.search.results.work[0].best_book.title;
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
       $scope.year = resp.data.GoodreadsResponse.search.results.work[0].original_publication_year.$t;
       $scope.GRBookImage = resp.data.GoodreadsResponse.search.results.work[0].best_book.image_url;
       $scope.GRBookURL = 'https://www.goodreads.com/book/show/' + resp.data.GoodreadsResponse.search.results.work[0].best_book.id.$t;
+      GRBookID = resp.data.GoodreadsResponse.search.results.work[0].best_book.id.$t;
       $scope.synopsis = '';
       // $scope.GRBookImage =
       $scope.topicURL = 'https://www.quora.com/search?q=' + input.replace(' ','+');
-      // $scope.synopsis = resp.data.GoodreadsResponse.book.description; // need to make 2nd API call to get this
-    });
+      console.log('script-controller l 59: GRBookID = ', GRBookID);
+    }).then(function() {
+        $http.post('/requestSynopsis', {search: GRBookID}).then(function(resp) {
+ // make 2nd API call to get book synopsis
+  
+        console.log('script-controller.js l 64: mainController - 2nd API call response with book ID: ', GRBookID);
+        console.log('script-controller.js l 65: resp obj from GR 2nd call is: ', resp.data.GoodreadsResponse);
+      $scope.synopsis = resp.data.GoodreadsResponse.book.description;
+        })
+      });
   };
 });
+
+
      
 // ================== New York Times results ===================================
 needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
     console.log('script-controller.js l37: NYTController input (request) = ', input);
     $http.post('/NYTrequest', {search: input}).then(function(resp){
-      if(resp.data.response.docs[0] === undefined) {
+      if(resp.data.response === undefined) {
           console.log('Sorry, the New York Times is not returning search results for this term.');
           $scope.NYTauthor = "Sorry, the New York Times is not returning search results for this term. What the dilly yo? \n Please try another search using the input box at the top of the the page. If you're really pissed, you can reach the Times' Public Editor at public@nytimes.com. :)"
           $scope.pubdate = '' // need this to remove any headline from a previous search
@@ -129,10 +141,8 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
     console.log('script-controller.js l101: QuoraController input (request) = ', input);
 
     $http.post('/QuoraRequest', {search: input}).then(function(qtext){
-console.log('qtext = ', qtext);
-
+      console.log('qtext = ', qtext);
       // var QuoraResultsObj = resp;
-
       // var QuoraQURL = body[0].QQuestionLink;
       // var QuoraQuestion = body[0].QQuestion;
       if(qtext.data.length === 0) {
