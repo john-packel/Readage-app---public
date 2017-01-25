@@ -1,14 +1,18 @@
 var needGoodReadApp = angular.module('need_a_good_read', []);
 // create the controller and inject Angular's $scope
+
+// ================== Main controller - search & Goodreads ===========================
 needGoodReadApp.controller('mainController', function($scope, $http) { 
 // should I be using ng-init for these instead? 
+  console.log('script-controller l 5;');
   var quoteChoice = function(){
     var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky', '"Celebrate the 150-year anniversary of Dostoyevsky\'s masterpiece, \'Crime and Punishment\'!" - John Packel'];
     return quotes[parseInt(Math.random()*6)];
   }
+
   $scope.message = quoteChoice(); // module.exports = quoteChoice;
 
-// ================== default display & Goodreads.com results ================================
+// ================== default display for Goodreads, NYT & Quora ===========================
   $scope.title = "The Brothers Karamazov";
   $scope.author = "Fyodor Dostoyevsky";
   $scope.rating = "4.30";
@@ -59,24 +63,29 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       var space = / /gi;
       var replacedValue = input.replace(space, '+');
       console.log('script-controller l 60: replacedValue = ', replacedValue);
-  
-      $scope.tweetSearch = 'https://twitter.com/search?q' +  replacedValue;
-      console.log('script-controller l 60: tweet search = ', 'https://twitter.com/search?q' +  replacedValue);
-
       $scope.topicURL = 'https://www.quora.com/search?q=' + replacedValue;
+
+      // $scope.tweetSearch = 'https://twitter.com/search?q' +  replacedValue;
+      // console.log('script-controller l 60: tweet search = ', 'https://twitter.com/search?q' +  replacedValue);
+      
       console.log('script-controller l 59: GRBookID = ', GRBookID);
     }).then(function() {
-        $http.post('/requestSynopsis', {search: GRBookID}).then(function(resp) {
- // make 2nd API call to get book synopsis
-  
+      $http.post('/requestSynopsis', {search: GRBookID}).then(function(resp) { // make 2nd API call to get book synopsis
         console.log('script-controller.js l 64: mainController - 2nd API call response with book ID: ', GRBookID);
         console.log('script-controller.js l 65: resp obj from GR 2nd call is: ', resp.data.GoodreadsResponse);
-      $scope.synopsis = resp.data.GoodreadsResponse.book.description;
+        // var cleanSynopsis = function(resp.data.GoodreadsResponse.book.description) {
+
+        // }
+        $scope.synopsis = resp.data.GoodreadsResponse.book.description;
         })
       });
-  };
-});
-// ================== New York Times results ===================================
+  }; // close $scope.searchRequest = function...
+}) // close needGoodReadApp.controller('mainController', function($scope, $http) { 
+
+// ========================= ADDITIONAL CONTROLLERS ===================================
+
+// ================== New York Times results controller ===================================
+
 needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
     console.log('script-controller.js l37: NYTController input (request) = ', input);
@@ -114,33 +123,13 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
       if(!resp.data.response.docs[0].web_url) {$scope.web_url = "Sorry, no result returned."} else {
         $scope.web_url = resp.data.response.docs[0].web_url;
       }
-     // from my attempt to display more than 1 result:
-        //  var leadsArray = [];
-     //  for(var x = 0; x < 10; x++){
-     //    leadsArray.push(NYTresultsObj[x].lead_paragraph)
-     //  }
-     //  var bylinesArray = [];
-     //  for(var y = 0; y < 10; y++){
-     //    leadsArray.push(NYTresultsObj[y].byline.original)
-     //  }
-     // var headlinesArray = [];
-     //  for(var w = 0; w < 10; w++){
-     //    leadsArray.push(NYTresultsObj[w].headline.main)
-     //  }
-      
-     //  console.log(leadsArray);
-     //  console.log(bylinesArray);
-
-     //  $scope.results = {
-     //    // headlines: headlinesArray,
-     //    leads: leadsArray
-     //    // headlines: bylinesArray
-     //  }
+      // see bottom for my attempt to display more than 1 result
     }});
   };
-});
+}); // close needGoodReadApp.controller('NYTController', function ($scope, $http){
+ 
+// // ================== Quora.com results controller ===================================
 
-// // ================== Quora.com results ===================================
 needGoodReadApp.controller('QuoraController', function($scope, $http) {
   $scope.QuoraSearch = function (input) {
     console.log('script-controller.js l101: QuoraController input (request) = ', input);
@@ -180,9 +169,36 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
       };
     });
   };
-});
+ }) // close needGoodReadApp.controller('QuoraController', function($scope, $http) {
 
-  // alternates for default image:
+// =================================================================================
+// // ================== EXTRA CODE TO SAVE FOR UPDATES ============================
+
+// from my attempt to display more than 1 result for NYT search:
+        //  var leadsArray = [];
+     //  for(var x = 0; x < 10; x++){
+     //    leadsArray.push(NYTresultsObj[x].lead_paragraph)
+     //  }
+     //  var bylinesArray = [];
+     //  for(var y = 0; y < 10; y++){
+     //    leadsArray.push(NYTresultsObj[y].byline.original)
+     //  }
+     // var headlinesArray = [];
+     //  for(var w = 0; w < 10; w++){
+     //    leadsArray.push(NYTresultsObj[w].headline.main)
+     //  }
+      
+     //  console.log(leadsArray);
+     //  console.log(bylinesArray);
+
+     //  $scope.results = {
+     //    // headlines: headlinesArray,
+     //    leads: leadsArray
+     //    // headlines: bylinesArray
+     //  }
+
+
+// alternates for default image:
     // $scope.image = "assets/shadow divers.jpeg"
     // $scope.image = "assets/pirate hunters.jpeg";
 

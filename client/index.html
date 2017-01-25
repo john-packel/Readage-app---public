@@ -1,11 +1,20 @@
 <!doctype html>
+<!-- NEED TO DO CSS PROPERLY WITH CONTAINERS! 
+<body>
+  <div id="wrapper">
+    <div id="header"></div>
+    <div id="content"></div>
+    <div id="footer"></div>
+  </div>
+</body> -->
+
 <html ng-app='need_a_good_read'> <!-- inject Angular -->
   <head>
     <meta charset="utf-8">
     <title>Readage: find your good words</title>
     <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-    
+
     <style  type="text/css">
      body {
        text-align: center;
@@ -17,21 +26,24 @@
    /*position:fixed;*/
    /* left: 0px;*/
      text-align: center;
-     padding-top: 5px;
+     /*padding-top: 5px;*/
      padding-bottom: 20px;
    /*top: 15px;*/
      /*bottom:30px;*/
      height:100px;
+
    /*opacity: 0.8;*/
      color: white;
-     font-size: 14px;
+     font-size: 18px;
      font-weight: 400;
-     line-height: 10px;
+     line-height: 12px;
+     font-kerning: 2px;
      background: #2971a5;
    /*text-align: center;*/
      vertical-align: text-top;
-     display: block;
+     /*display: block;*/
      margin: 10px;
+     /*text-decoration-color: background: #822090;*/
 }
   a:hover {
     background-color: beige;
@@ -45,48 +57,24 @@
   margin: 0 1.5%;
   width: 30%;
 }*/
-
-
-/*.twitter-timeline: {
-  float:left;
-  margin-left: 30px
-}*/
     </style>      
-<!-- ==================== note: 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. ====================================
-    But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
-    And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
 
-    <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
   </head>
-
   <body>
-<!--  ================== this was interesting but kinda annoying (& 1990s) ===========
-   <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
-      <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: brown"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</span><br>
-      <script type="text/javascript">
-        function scroll() {
-          $('#scrolltext').css('left', $('#scrollcontainer').width());
-          $('#scrolltext').animate({
-          left: '-='+($('#scrollcontainer').width()+$('#scrolltext').width())
-          }, 30000, function() {
-            scroll();
-            });
-        }
-        scroll();
-      </script>
-    </div> -->
+  <div id="wrapper">
+    <script src="script-controller.js"></script>
 
-<!--      <img style="float: left; margin-left: 10px; width: 11%; height: 11%;" src="assets/Readage_logo_paid.png">  -->
-<!-- <img style="float: left; margin-left: 10px; width: 15%; height: 15%;" src="assets/Readage logo w tag on book.png">  -->
-  <!-- <br> -->
-  <a href="/index.html"><img style="float: left; margin-left: 15px; width: 14%; height: 14%;" src="assets/Readage logo mock transparent.png"> </a>
+    <div id="header">
+    <a href="/index.html"><img style="float: left; margin-left: 15px; width: 14%; height: 14%;" src="assets/Readage logo 1.27.png"> </a>
+    </div>
+
+    <div id="content">
 <!--  <h5><br><br>
-
-     <!-- <a style="float: left; color: #822020;font-weight: bold;">find your good words</a><br> -->
+     <!- <a style="float: left; color: #822020;font-weight: bold;">find your good words</a><br> -->
        <!-- </h2> -->
     <!--   <img style="float: left; margin-left: 15px; width: 7.5%; height: 7.5%;" src="assets/Readage logo words with tagline.png"> -->
 
@@ -103,7 +91,7 @@
       <a style="color: green;font-weight: bold">Need a book recommendation?</a>
     </h2>
     <p class="h_iframe">
-      <iframe src="Goodreads-widget-jp.html" style="width: 75%;height: 433px"></iframe>
+      <iframe src="Goodreads-widget-jp.html" style="width: 75%;height: 440px"></iframe>
     </p>
 
     <hr style="width: 50%">
@@ -127,6 +115,23 @@
     </h5> 
     <!-- </div> -->
 <!-- <br> <br> -->
+    <hr style="width: 50%">
+    <h2>
+      <a style="color: green;font-weight: bold">Preview selected reads</a>
+    </h2> 
+    <div style="margin-left: 295px"> 
+      <script type="text/javascript"  src="//books.google.com/books/previewlib.js"></script>
+      <script type="text/javascript">GBS_insertEmbeddedViewer('ISBN:0812973690',300,440);
+      </script>
+    </div>
+    <div style="margin-left: 295px"> 
+      <script type="text/javascript"  src="//books.google.com/books/previewlib.js"></script>
+      <script type="text/javascript">GBS_insertEmbeddedViewer('ISBN:1250065631',300,440);
+      </script>
+    </div>
+       <h4>
+      <p style="color: brown; text-align: center;">Click Google Books icon in lower left corner to view in new window.</p>  
+    </h4>
       <hr style="width: 50%">
     <h2>
       <a style="color: green;font-weight: bold">Book buyer's corner</a>
@@ -146,7 +151,7 @@
     <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
 
     <!--  Shadow Divers  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe> -->
-    <br>
+    <br><br>
 
     <hr style="width: 50%">
   
@@ -164,7 +169,8 @@
 <!-- ================   alternate option for Amazon ads (image only) ===============
 <a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
 
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <!-- <br><br><br> -->
     <hr style="width: 35%; float: left; margin-left: 20px">
     <br><br>
   
@@ -236,14 +242,13 @@
     <h2>
       <a style="color: green;font-weight: bold">Tweetage</a>
     </h2>
-     <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="TwitterBooks">TwitterBooks tweets</a>
+     <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="TwitterBooks"></a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <br>
 <!--  <section> 
-                  <a class="twitter-timeline"  href="https://twitter.com/hashtag/dostoyevsky" data-widget-id="824267130132713473">#dostoyevsky tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-          <!-- </div> -->
-    <br><br><br><br>
+  
+          <!- </div> -->
+    <!-- <br><br><br><br> -->
 <!--     <body>
   <div id="wrapper">
     <div id="header"></div>
@@ -258,9 +263,15 @@
  <!- </div> -->
  <!-- </section> -->
  <!-- <div style="width: 33%"> -->
-<!--  <section> 
-               <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="nytimesbooks">New York Times Books tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+ <!-- <section>  -->
+      <br>
+      <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="nytimesbooks"></a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div style="float: left">
+      <a class="twitter-timeline"  href="https://twitter.com/hashtag/dostoyevsky" data-widget-id="824267130132713473">#dostoyevsky tweets</a>
+         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>     
  <!-- </div> -->
  <!-- </section> -->
  <!-- <section> 
@@ -282,11 +293,11 @@
     <a class="twitter-timeline" href="https://twitter.com/jpackel">Tweets by @jpackel</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
      -->
-    <br><br><br><br>
+     <div id="footer">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <footer class="primary-footer container group">
- 
-    
    <!-- <div style="text-align: center;"> -->
+   <!-- <h3> -->
    <p> &nbsp</p>
       <a>Created by John Packel</a><br><br>
       <a href="https://twitter.com/jpackel" target="blank">Twitter&nbsp&nbsp|&nbsp&nbsp</a>
@@ -294,13 +305,11 @@
       <a href="https://www.quora.com/profile/John-Packel" target="blank">Quora&nbsp&nbsp|&nbsp&nbsp</a>  
       <a href="https://github.com/john-packel" target="blank">Github</a> 
       <p>Like this site? Send me Bitcoin! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
-   <!-- </div> -->
+   <!-- </h3> -->
   </footer>
-
-  <script src="script-controller.js"></script>
+    </div>
+</div>
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-<!-- <script src="quote-controller.js"></script> -->
-  </div>
   </body>
 </html>
 
@@ -315,3 +324,29 @@
 
       <!--              <a class="twitter-timeline"  href="https://twitter.com/search?q=kurt%20vonnegut" data-widget-id="810278544878215168">Tweets about kurt vonnegut</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+
+      <!-- ======================== STUFF I TOOK OUT BUT WANT TO SAVE ================
+      ================== this was interesting but kinda annoying (& 1990s) ===========
+   <div id="scrollcontainer" style="postion:relative; overflow:hidden; width:60%;">
+      <span id="scrolltext" style="position:absolute; whitespace:nowrap; color: brown"> Celebrate the 150-year anniversary of Dostoyevsky's masterpiece, 'Crime and Punishment'!</span><br>
+      <script type="text/javascript">
+        function scroll() {
+          $('#scrolltext').css('left', $('#scrollcontainer').width());
+          $('#scrolltext').animate({
+          left: '-='+($('#scrollcontainer').width()+$('#scrolltext').width())
+          }, 30000, function() {
+            scroll();
+            });
+        }
+        scroll();
+      </script>
+    </div> -->
+
+    <!-- <script src="quote-controller.js"></script> -->
+
+      <!-- ====================== QUESTIONS ===============================================
+      ==================== note: 12.8 - used styles links from HR Goodeats app + updated angular-route from CDN. ====================================
+    But removed crossorigin lines after this error: "Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https, chrome-extension-resource."
+    And integrity lines after this error: "has an integrity attribute, but the resource requires the request to be CORS enabled to check the integrity, and it is not. The resource has been blocked because the integrity cannot be enforced."-->
+
+    <!-- <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css"> -->
