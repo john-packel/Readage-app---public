@@ -39,6 +39,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.QuoraURL4 = "https://www.quora.com/Which-Fyodor-Dostoyevsky-book-shall-I-read-to-start-with";
   $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?";
   $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much";
+  $scope.tweetSearch = 'https://twitter.com/search?q=bitcoin';
 
   var GRBookID = ''; 
 
@@ -54,8 +55,15 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       $scope.GRBookURL = 'https://www.goodreads.com/book/show/' + resp.data.GoodreadsResponse.search.results.work[0].best_book.id.$t;
       GRBookID = resp.data.GoodreadsResponse.search.results.work[0].best_book.id.$t;
       $scope.synopsis = '';
-      // $scope.GRBookImage =
-      $scope.topicURL = 'https://www.quora.com/search?q=' + input.replace(' ','+');
+
+      var space = / /gi;
+      var replacedValue = input.replace(space, '+');
+      console.log('script-controller l 60: replacedValue = ', replacedValue);
+  
+      $scope.tweetSearch = 'https://twitter.com/search?q' +  replacedValue;
+      console.log('script-controller l 60: tweet search = ', 'https://twitter.com/search?q' +  replacedValue);
+
+      $scope.topicURL = 'https://www.quora.com/search?q=' + replacedValue;
       console.log('script-controller l 59: GRBookID = ', GRBookID);
     }).then(function() {
         $http.post('/requestSynopsis', {search: GRBookID}).then(function(resp) {
@@ -68,9 +76,6 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
       });
   };
 });
-
-
-     
 // ================== New York Times results ===================================
 needGoodReadApp.controller('NYTController', function ($scope, $http){
   $scope.NYTSearch = function (input) {
