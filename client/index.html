@@ -227,13 +227,15 @@
       <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
     </h3>
   </div>
-  </div>
+ </div>
 
     <hr style="width: 30%">
   <div ng-controller="NYTController">
     <h2>
-      <a style="color: green;font-weight: bold">Results from the New York Times</a>
+    
+      <a style="color: green;font-weight: bold; margin-left: 25px">Results from the New York Times</a>
     </h2> 
+    <div style="margin-left: 30px">
       <button class="NYTSearch" ng-model="NYTSearch" style="color: brown" ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
      
 <!-- =========  need to display more results and use ng-repeate =========== <table> -->
@@ -244,7 +246,7 @@
            <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
           <!-- </tr> -->
              <!-- </table>  -->
-    <div style="margin-left: 30px">
+    
     <h3> 
       <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
       <br><br>
@@ -255,7 +257,8 @@
       <a style="color: green;font-weight: bold"> | Intro: </a> {{ lead }}<br>
      </h3>
      </div>
-  </div>
+     </div>
+  <!-- </div> -->
     <hr style="width: 30%">
 
   <div ng-controller='QuoraController'>
@@ -299,6 +302,8 @@
       </div>
       </div>  
       <br><br>  
+      <hr style="width: 60%"> 
+      <br>
        <img style="padding: 1px; margin: 0px; width: 50%" src="/assets/book banner.jpeg"> 
 
 <!-- </div> -->
