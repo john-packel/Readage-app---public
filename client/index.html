@@ -15,7 +15,7 @@
     <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 
-    <style  type="text/css">
+    <style type="text/css">
      body {
        text-align: center;
        background-color: beige;
@@ -25,33 +25,32 @@
      footer {
    /*position:fixed;*/
    /* left: 0px;*/
-     text-align: center;
+     /*text-align: center;*/
      /*padding-top: 5px;*/
      padding-bottom: 20px;
    /*top: 15px;*/
      /*bottom:30px;*/
      height:100px;
-
-   /*opacity: 0.8;*/
+     
+   opacity: 0.9;
      color: white;
      font-size: 18px;
      font-weight: 400;
      line-height: 12px;
-     font-kerning: 2px;
-     background: #2971a5;
+     /*font-kerning: 2px;*/
+     background: #822020;
    /*text-align: center;*/
-     vertical-align: text-top;
+     /*vertical-align: text-top;*/
      /*display: block;*/
-     margin: 10px;
+     /*margin: 10px;*/
      /*text-decoration-color: background: #822090;*/
 }
   a:hover {
-    background-color: beige;
+    background-color: green;
     /*line-height: 30px;*/
 }
-/*  .verticalLine {
-    border-left: thick solid #ff0000;*/
-}
+
+
 /*section {
   float: left;
   margin: 0 1.5%;
@@ -174,6 +173,9 @@
     <a data-pin-do="embedBoard" data-pin-board-width="540" data-pin-scale-height="280" data-pin-scale-width="80" href="https://www.pinterest.com/jenngrey/library/"></a>
     <br><br>
 
+   <img style="padding: 1px; margin: 0px; width: 20%; height: 20%" src="/assets/Holden Caulfield thinks you're a phony.jpeg">
+    
+
  <hr style="width: 50%">
     <h2>
       <a style="color: green;font-weight: bold">Buyer's corner</a>
@@ -193,25 +195,25 @@
     <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
 
     <!--  Shadow Divers  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe> -->
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
     <br><br>
-
   </div>
 
 <!-- ================   alternate option for Amazon ads (image only) ===============
 <a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
 
-    <br><br><br><br><br><br><br>
+    <br>
     <!-- <br><br><br> -->
     <!-- <hr style="width: 35%; float: left; margin-left: 20px"> -->
-    <hr style="width: 35%; float: left; margin-left: 15px">
+    <!-- <hr style="width: 35%; float: left; margin-left: 15px"> -->
     <br><br>
   
   <div id="middle">
     <form ng-submit="searchRequest(input)">
-      <input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px;  width: 180px; line-height: 15px; color: brown;  font-size: 10pt">
-      <input type="Submit" style="color: brown; margin-left: 10px">
+      <input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px; margin-left: 20px;  width: 180px; line-height: 15px; color: brown;  font-size: 10pt">
+      <input type="Submit" style="color: brown; margin-left: 2px">
     </form>
-    <br>
+    <br><br><br><br>
     <a href="{{GRBookURL}}" target="_blank"><img style="height: 230px; " ng-src="{{ GRBookImage }}"></img></a> <!-- height="240" width="160"  -->
     <h4>
      <p style="color: brown">Click image to view book on Goodreads.com.</p>
@@ -297,19 +299,12 @@
       <a class="twitter-timeline"  data-widget-id="824267130132713473" data-screen-name="jpackel"></a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </div>
-      </div>     
-<!-- </section> -->
-    <!-- <div style="width: 40%"> -->
-    <!-- <a> trying to get dynamic tweets; search URL = {{tweetSearch}} </a> -->
-    <!-- <a href="{{tweetSearch}}"> -->
-      <!--   <a class="twitter-timeline"  href="https://twitter.com/hashtag/dostoyevsky" >[dynamic] Tweets</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-  <!--   <a href={{tweetSearch}} class="twitter-timeline-dynamic">Tweets by [add dynamic term]</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-<!-- </div> -->
-
+      </div>  
+      <br><br>  
+       <img style="padding: 1px; margin: 0px; width: 50%" src="/assets/book banner.jpeg"> 
 
 <!-- </div> -->
- <br><br>
+ <br>
 <!-- <div style="width: 40%">
     <a class="twitter-timeline" href="https://twitter.com/jpackel">Tweets by @jpackel</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
@@ -319,15 +314,19 @@
   <footer class="primary-footer container group">
    <!-- <div style="text-align: center;"> -->
    <!-- <h3> -->
+
    <p> &nbsp</p>
-      <a>Created by John Packel</a><br><br>
-      <a href="https://twitter.com/jpackel" target="blank">Twitter&nbsp&nbsp|&nbsp&nbsp</a>
-      <a href="https://www.facebook.com/john.packel/photos?source_ref=pb_friends_tl" target="blank">Facebook&nbsp&nbsp|&nbsp&nbsp</a> 
-      <a href="https://www.quora.com/profile/John-Packel" target="blank">Quora&nbsp&nbsp|&nbsp&nbsp</a>  
-      <a href="https://github.com/john-packel" target="blank">Github</a> 
-      <p>Like this site? Send me Bitcoin to support it! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
+      <a style="text-align: center;">Created by John Packel</a><br><br>
+      <div >
+      <a href="https://twitter.com/jpackel" target="blank" style="color: white">Twitter&nbsp&nbsp|&nbsp&nbsp</a>
+      <a href="https://www.facebook.com/john.packel/photos?source_ref=pb_friends_tl" target="blank" style="color: white">Facebook&nbsp&nbsp|&nbsp&nbsp</a> 
+      <a href="https://www.quora.com/profile/John-Packel" target="blank" style="color: white">Quora&nbsp&nbsp|&nbsp&nbsp</a>  
+      <a href="https://github.com/john-packel" target="blank" style="color: white">Github</a> 
+      </div>
+      <p>Like this site? Send Bitcoin to support it! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
    <!-- </h3> -->
   </footer>
+  </div>
     </div>
 </div>
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
