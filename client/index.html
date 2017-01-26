@@ -82,14 +82,13 @@
   <div ng-controller="mainController" class="centered" id="main">
   <div id="right-side-page" style="float: right"> 
   <br>
-  <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Fyodor.jpeg">
-  <!-- <img style="padding: 1px; margin: 0px; width: 8%; height: 8%" src="/assets/Fyodor.jpeg"> -->
-    <!-- <img style="padding: 1px; margin: 0px; width: 5%; height: 5%" src="/assets/Crime_Punishment.jpeg">  -->
+  <div style="margin-left: 40px;">
+    <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Fyodor.jpeg">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Willy.jpeg">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Didion.jpeg">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;object-fit: cover;" src="/assets/Hesse.jpeg">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px; object-fit: cover;" src="/assets/Hawking.jpeg">
-
+  </div>
       <hr style="width: 55%; color: brown;" >
 
     <!-- <img style="padding: 1px; margin: 0px; width: 5%; height: 5%" src="/assets/Hamlet.png"> -->
@@ -100,10 +99,11 @@
  <!-- <div class="verticalLine"> -->
    <!--  <hr style="width: 50%"> -->
     <h2>
-      <a style="color: green;font-weight: bold">Need a book recommendation?</a>
+      <a style="color: green;font-weight: bold; margin-left: 45px;">Need a book recommendation?</a>
     </h2>
+
     <p class="h_iframe">
-      <iframe src="Goodreads-widget-jp.html" style="width: 75%;height: 440px"></iframe>
+      <iframe src="Goodreads-widget-jp.html" style="border: 4x; border-radius: 5px; width: 73%; margin-left: 40px; height: 440px"></iframe>
     </p>
 <br>
     <a href="https://www.nypl.org/books-music-dvds/recommendations/staff-picks/" target="_blank"> <img style="padding: 3px; border: 1px solid black;  margin: 0px; height: 30%; width: 30%" src="/assets/NYPL lion logo.png"></a>
@@ -216,6 +216,7 @@
     <h4>
      <p style="color: brown">Click image to view book on Goodreads.com.</p>
     </h4>
+    <div style="margin-left: 30px">
     <h2>
       <a style="color: green;font-weight: bold">Title: </a> {{ title }}
       <a style="color: green;font-weight: bold">|   Author: </a>{{ author }}<br>
@@ -225,7 +226,7 @@
     <h3>  
       <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
     </h3>
-
+  </div>
   </div>
 
     <hr style="width: 30%">
@@ -243,6 +244,7 @@
            <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
           <!-- </tr> -->
              <!-- </table>  -->
+    <div style="margin-left: 30px">
     <h3> 
       <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
       <br><br>
@@ -252,7 +254,7 @@
       <a style="color: green;font-weight: bold">Section: </a> {{ section }}
       <a style="color: green;font-weight: bold"> | Intro: </a> {{ lead }}<br>
      </h3>
-     
+     </div>
   </div>
     <hr style="width: 30%">
 
@@ -261,6 +263,7 @@
       <a href="{{topicURL}}" target="_blank" style="color: green;font-weight: bold">Search Quora.com for this topic</a>
     </h2>
       <button class="QuoraSearch" ng-model="QuoraSearch" style="color: brown" ng-click="QuoraSearch(input)">Click to see Quora results for your search term</button><br>
+    <div style="margin-left: 30px">
     <h3>   
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL1}}">{{ QuoraQuestion1 }}</a> <br><br>
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL2}}">{{ QuoraQuestion2 }}</a> <br><br>
@@ -268,36 +271,20 @@
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL4}}">{{ QuoraQuestion4 }}</a> <br><br>
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL5}}">{{ QuoraQuestion5 }}</a> <br>
     </h3>
+    </div>
   </div>
 
 <!-- ============= Twitter widget - will replace with my own ================ -->
 <!-- <div> -->
+    
     <hr style="width: 30%"> 
+    <div style="align-content: center;">
     <h2>
       <a style="color: green;font-weight: bold">Book tweetage</a>
     </h2>
      <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="TwitterBooks"></a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<br>
-<!--  <section> 
-  
-          <!- </div> -->
-    <!-- <br><br><br><br> -->
-<!--     <body>
-  <div id="wrapper">
-    <div id="header"></div>
-    <div id="content"></div>
-    <div id="footer"></div>
-  </div>
-</body> -->
-    <!-- </section> -->
-<!-- <div style="width: 33%"> -->
-<!-- <section> 
-       
- <!- </div> -->
- <!-- </section> -->
- <!-- <div style="width: 33%"> -->
- <!-- <section>  -->
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>      
+      <br>
       <br>
       <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="nytimesbooks"></a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -306,15 +293,11 @@
       <br><br>
       <a class="twitter-timeline"  href="https://twitter.com/hashtag/dostoyevsky" data-widget-id="824267130132713473"></a>
          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
- <!-- </div> -->
- <!-- </section> -->
- <!-- <section>  -->
- <br><br>
-               <a class="twitter-timeline"  data-widget-id="824267130132713473" data-screen-name="jpackel"></a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-                </div>     
+      <br><br>
+      <a class="twitter-timeline"  data-widget-id="824267130132713473" data-screen-name="jpackel"></a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+      </div>     
 <!-- </section> -->
     <!-- <div style="width: 40%"> -->
     <!-- <a> trying to get dynamic tweets; search URL = {{tweetSearch}} </a> -->
