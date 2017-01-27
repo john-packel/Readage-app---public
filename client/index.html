@@ -48,6 +48,36 @@
   .footer-links:hover {
     background-color: green;
 }
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    bottom: 100%;
+    left: 50%; 
+    margin-left: -80px;
+     border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 5;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 /*section {
   float: left;
@@ -80,11 +110,26 @@
   <div id="right-side-page" style="float: right"> 
   <br>
   <div style="margin-left: 40px;">
+  <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Fyodor.jpeg">
+    <span class="tooltiptext">“If you want to overcome the whole world, overcome yourself.”</span> </div>
+<div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Willy.jpeg">
+  <span class="tooltiptext">“The fault, dear Brutus, is not in our stars, but in ourselves.”</span></div>
+<div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Didion.jpeg">
+    <span class="tooltiptext">“A single person is missing for you, and the whole world is empty.”</span> 
+</div>
+<div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;object-fit: cover;" src="/assets/Hesse.jpeg">
+    <span class="tooltiptext">“Learn what is to be taken seriously and laugh at the rest.”</span> 
+</div>
+<div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px; object-fit: cover;" src="/assets/Hawking.jpeg">
+    <span class="tooltiptext">“Quiet people have the loudest minds.”</span> 
+
+
+    </div>
   </div>
       <hr style="width: 55%; color: brown;" >
 
