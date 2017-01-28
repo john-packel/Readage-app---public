@@ -1,15 +1,6 @@
 <!doctype html>
-<!-- NEED TO DO CSS PROPERLY WITH CONTAINERS! 
-<body>
-  <div id="wrapper">
-    <div id="header"></div>
-    <div id="content"></div>
-    <div id="footer"></div>
-  </div>
-</body> -->
-
-<html ng-app='need_a_good_read'> <!-- inject Angular -->
-  <head>
+<html ng-app='need_a_good_read'> 
+  <head>      <!-- NEED TO DO CSS PROPERLY WITH CONTAINERS! -->
     <meta charset="utf-8">
     <title>Readage: find your good words</title>
     <script src="https://use.fontawesome.com/ba60a8e562.js"></script>
@@ -23,29 +14,17 @@
        font-family: 'Abel', sans-serif;
      }
      footer {
-   /*position:fixed;*/
-   /* left: 0px;*/
-     /*text-align: center;*/
-     /*padding-top: 5px;*/
      padding-bottom: 20px;
-   /*top: 15px;*/
-     /*bottom:30px;*/
      height:100px;
-     
-   opacity: 0.9;
+     opacity: 0.9;
      color: white;
      font-size: 18px;
      font-weight: 400;
      line-height: 12px;
-     /*font-kerning: 2px;*/
      background: #822020;
-   /*text-align: center;*/
-     /*vertical-align: text-top;*/
-     /*display: block;*/
-     /*margin: 10px;*/
      /*text-decoration-color: background: #822090;*/
 }
-  .footer-links:hover {
+.footer-links:hover {
     background-color: green;
 }
 .tooltip {
@@ -62,38 +41,30 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-
     bottom: 100%;
     left: 50%; 
     margin-left: -80px;
      border-width: 5px;
     border-style: solid;
     border-color: black transparent transparent transparent;
-
     /* Position the tooltip */
     position: absolute;
     z-index: 5;
 }
-
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-
-/*section {
-  float: left;
-  margin: 0 1.5%;
-  width: 30%;
-}*/
-    </style>      
+  </style>      
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
   <h4 style="color: green; margin-right: 100px"> &#10232&nbsp search stuff&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp browse stuff &nbsp &#10233</h4>
-  <div id="wrapper">
+  <!-- <div id="wrapper"> -->
     <script src="script-controller.js"></script>
 
     <div id="header">
@@ -109,67 +80,65 @@
   <div ng-controller="mainController" class="centered" id="main">
   <div id="right-side-page" style="float: right"> 
   <br>
+
+  <!-- ======================= SECTION: Author pics & quote bubbles (using tooltip)========= -->
   <div style="margin-left: 40px;">
   <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Fyodor.jpeg">
     <span class="tooltiptext">“If you want to overcome the whole world, overcome yourself." - Dostoyevsky</span> </div>
-<div class="tooltip">
+  <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Willy.jpeg">
-  <span class="tooltiptext">“The fault, dear Brutus, is not in our stars, but in ourselves." - Shakespeare</span></div>
-<div class="tooltip">
+    <span class="tooltiptext">“The fault, dear Brutus, is not in our stars, but in ourselves." - Shakespeare</span></div>
+  <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;" src="/assets/Didion.jpeg">
-    <span class="tooltiptext">“A single person is missing for you, and the whole world is empty."     - Didion</span> 
-</div>
-<div class="tooltip">
+    <span class="tooltiptext">“A single person is missing for you, and the whole world is empty." - Didion</span> 
+  </div>
+  <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px;object-fit: cover;" src="/assets/Hesse.jpeg">
     <span class="tooltiptext">“Learn what is to be taken seriously and laugh at the rest."     - Hesse</span> 
-</div>
-<div class="tooltip">
+  </div>
+  <div class="tooltip">
     <img style="padding: 1px; margin: 0px; width: 95px; height: 95px; border: 2px solid green;padding: 3px; object-fit: cover;" src="/assets/Hawking.jpeg">
     <span class="tooltiptext">“Quiet people have the loudest minds." - Hawking</span> 
-    </div>
+  </div>
 
     <h4>
-      <p style="color: brown">Mouse on over. We have something to say.</p>  
+      <p style="color: brown">Mouse on over. We'd like to have a word with you.</p>  
     </h4>
-
   </div>
-      <hr style="width: 55%; color: brown;" >
-
-    <!-- <img style="padding: 1px; margin: 0px; width: 5%; height: 5%" src="/assets/Hamlet.png"> -->
-    <!-- "http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg" -->
-   <!--  <h4>
-      {{ message }}
-    </h4>  -->
- <!-- <div class="verticalLine"> -->
-   <!--  <hr style="width: 50%"> -->
+<!-- =========================== SECTION: Need a book recommendation? ====================== -->
+<!-- ================== sub-section: Goodreads widget (will replace w/ my code) ============== -->
+    <hr style="width: 55%; color: brown;" >
     <h2>
-      <a style="color: green;font-weight: bold; margin-left: 45px;">Need a book recommendation?</a>
+      <a style="color: green;font-weight: bold; margin-left: 45px;">Looking for a book recommendation?</a>
     </h2>
 
-    <p class="h_iframe">
-      <iframe src="Goodreads-widget-jp.html" style="border: 4x; border-radius: 5px; width: 75%; margin-left: 40px; height: 350px"></iframe>
-    </p>
-<br>
-    <a href="https://www.nypl.org/books-music-dvds/recommendations/staff-picks/" target="_blank"> <img style="padding: 3px; border: 1px solid black;  margin: 0px; height: 30%; width: 30%" src="/assets/NYPL lion logo.png"></a>
-   <!--  <img style="padding: 1px; border-color: black;  margin: 0px; height: 10%; width: 10%" src="/assets/NYPL lion logo transparent.png"></a> -->
-    <h4>
-    <p   style="color: brown">Recommendations from NYPL staff</p> 
+      <p class="h_iframe">
+        <iframe src="Goodreads-widget-jp.html" style="border: 4x; border-radius: 5px; width: 75%; margin-left: 40px; height: 350px"></iframe>
+      </p>
+<!-- ================== sub-section: NPR's Book Concierge ======================== --> 
+  <!-- <div style="float: right;">  -->
+    <hr style="width: 15%; color: brown; border-top: dotted 1px">  <br>
+      <a href="http://apps.npr.org/best-books-2016/#/tag/staff-picks" target="_blank"> <img style="padding: 3px; border: 1px solid black; height: 20%; width: 20%" ></a>
+      <br>
+      <h4>
+      <p style="color: brown">NPR’s Book Concierge - Best of 2016</p> 
     </h4>
-    <br><br>
-   <!--  <hr style="width: 50%">
-    
-    <h2>
-      <a style="color: green;font-weight: bold">Featured book blog</a>
-    </h2>  -->
-   
-      <a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:165px;height:165px; border: 1px solid black;padding: 3px; vertical-align: middle"></a></p>
+  <!-- </div>   -->
+<!-- ================== sub-section: NYPL ======================== -->  
+    <hr style="width: 15%; color: brown; border-top: dotted 1px">  <br>
+      <a href="https://www.nypl.org/books-music-dvds/recommendations/staff-picks/" target="_blank"> <img style="padding: 3px; border: 1px solid black;  margin: 0px; height: 30%; width: 30%" src="/assets/NYPL lion logo.png"></a>
+      <br>
+    <!-- <h4>
+      <p style="color: brown">Staff picks from one of New York's greatest treasures</p> 
+    </h4> -->
+<!-- ================== sub-section: Sophie's blog ======================== -->      
+    <hr style="width: 15%; color: brown; border-top: dotted 1px">
+    <br>
+      <a href="https://bookwishblog.com" target="_blank"><img src="assets/Bookwish.jpg" alt="Bookwish" style="width:165px;height:165px; border: 1px solid black;padding: 3px; vertical-align: middle"></a></p>    
     <h4>
-      <p style="color: brown">Recommendations from Sophie's awesome blog - BOOK WISH: the confessions of a bookaholic</p>  
+      <p style="color: brown">Sophie's picks from her author blog - BOOK WISH: the confessions of a bookaholic:</p>  
     </h4>
-      <!-- <h3> -->
-      <!-- <a> Sophie's current top recommendations:</a> -->
-      <!-- </h3> -->
     <h5>
       <a href="http://amzn.to/2idC0qo" target="_blank" style="color: blue">Before I Fall (by Lauren Oliver)</a>&nbsp&nbsp|&nbsp&nbsp
       </a>
@@ -178,87 +147,70 @@
     </h5> 
     <!-- </div> -->
 <!-- <br> <br> -->
+<!-- ============================= SECTION: Take a peek inside ======================== -->
     <hr style="width: 50%;">
     <h2>
       <a style="color: green;font-weight: bold">Take a peek inside</a>
     </h2> 
-    <div style="margin-left: 295px"> 
+<!-- ================== sub-section: Pirate Hunters ======================== -->     
+  <div style="margin-left: 295px"> 
       <script type="text/javascript"  src="//books.google.com/books/previewlib.js"></script>
       <script type="text/javascript">GBS_insertEmbeddedViewer('ISBN:0812973690',300,440);
       </script>
-    </div>
-    <div style="margin-left: 295px"> 
+  </div>
+<!-- ================== sub-section: Age of Cryptocurrency ======================== -->     
+  <div style="margin-left: 295px"> 
       <script type="text/javascript"  src="//books.google.com/books/previewlib.js"></script>
       <script type="text/javascript">GBS_insertEmbeddedViewer('ISBN:1250065631',300,440);
       </script>
-    </div>
-       <h4>
-      <p style="color: brown; text-align: center;">Click Google Books icon in lower left corner to view in new window.</p>  
-    </h4>
-      <hr style="width: 50%">
-  
+  </div>
+    <h5>
+      <p style="color: brown; text-align: center;font-style: italic;">(click Google Books icon in lower left corner to view in new window)</p>  
+    </h5>
+<!-- =========================== SECTION: Best of the blogs ====================== -->  
+  <div>
+    <hr style="width: 50%">
+    <h2>
+      <a style="color: green;font-weight: bold">Book blog sentry</a>
+    </h2> 
+      <a href="http://www.themillions.com/2017/01/most-anticipated-the-great-2017-book-preview.html" target="_blank" ><img style="width: 40%; height: 40%" src="assets/Millions-preview17.jpg"></a>
+    <h5>
+      <p style="color: brown; text-align: center; font-style: italic;">(click image to see post)</p>
+    </h5>  
+    <h4>
+      <a style="color: black">The Millions blog:</a><a style="color: black;font-style: italic;"> Most Anticipated: The Great 2017 Book Preview</a><br>
+      <p style="color: grey; width: 600px; margin-left: 150px">"Although 2016 has gotten a bad rap, there were, at the very least, a lot of excellent books published. But this year! ..."</p>
+      <!-- Books from George Saunders, Roxane Gay, Hari Kunzru, J.M. Coetzee, Rachel Cusk, Jesmyn Ward? But this year! Books from George Saunders, Roxane Gay, Hari Kunzru, J.M. Coetzee, Rachel Cusk, Jesmyn Ward?  A lost manuscript by Claude McKay? A novel by Elif Batuman? Short stories by Penelope Lively? A memoir by Yiyun Li?  Books from no fewer than four Millions staffers? It’s a feast...  -->
+  </div>
+<!-- =========================== SECTION: Books & words gallery ====================== -->  
+    <hr style="width: 50%">
     <h2>
       <a style="color: green;font-weight: bold">Books & words gallery</a>
     </h2> 
-
     <a href="http://www.shakespeareexchange.org/" target="_blank" ><img style="width: 40%; height: 40%" src="assets/book stack shakespeare edit.jpg"></a>
-
-     <img style="width: 18%; height: 18%; margin-left: 20px" src="assets/book stairs.jpg"><br>
-    
+    <img style="width: 18%; height: 18%; margin-left: 20px" src="assets/book stairs.jpg"><br>
     <h4>
-      <p style="color: brown">Click left image for Shakespeare Exchange (& ShakesBEER pub crawl) info</p>  
+      <p style="color: brown">Left image links to Shakespeare Exchange (& ShakesBEER pub crawl) info</p>  
     </h4>
     <br>
-    
-      <img style="padding: 1px; margin: 0px; width: 60%; height: 60%" src="/assets/dostoevsky_by_river.jpg">
-    <!-- "http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg" -->
+    <img style="padding: 1px; margin: 0px; width: 60%; height: 60%" src="/assets/dostoevsky_by_river.jpg"><!-- "http://thebigsmoke.com/wp-content/uploads/dostoevsky.jpg" -->
     <h4>
       {{ message }}
     </h4> 
-<br>
+    <br>
     <!-- <a data-pin-do="embedBoard" data-pin-board-width="540" data-pin-scale-height="280" data-pin-scale-width="80" href="https://www.pinterest.com/jenngrey/library/"></a> -->
     <a data-pin-do="embedBoard" data-pin-board-width="540" data-pin-scale-height="280" data-pin-scale-width="80" href="https://www.pinterest.com/luisbib/antiques-books-/"></a>
     <br><br>
-
-   <img style="padding: 1px; margin: 0px; width: 20%; height: 20%" src="/assets/Holden Caulfield thinks you're a phony.jpeg">
+    <img style="padding: 1px; margin: 0px; width: 20%; height: 20%" src="/assets/Holden Caulfield thinks you're a phony.jpeg">
 
      <br><br>
       <img style="padding: 1px; margin: 0px; width: 80%" src="/assets/peanuts1.jpg"> 
-    
-
- <hr style="width: 50%">
- <br><br>
-    <!-- <h2>
-      <a style="color: green;font-weight: bold">Buyer's corner</a>
-    </h2> 
-
-    <h4 style="color: brown">Grab some Dostoyevsky or Einstein, understand blockchain or the brain, or dive deep for pirates
-    </h4>  
-
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
-
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0S0K&asins=B000PC0S0K&linkId=3e3a5849b2b653f048584c48a6570f8b&show_border=true&link_opens_in_new_window=true"></iframe>
-
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=1101980133&asins=1101980133&linkId=937aaecd488defd173117751a8aa7501&show_border=true&link_opens_in_new_window=true"></iframe>
-    
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0SDW&asins=B000PC0SDW&linkId=53481dc13443eff7584ab387663e53c3&show_border=true&link_opens_in_new_window=true"></iframe>
-
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe> -->
-
-    <!--  Shadow Divers  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0375760989&asins=0375760989&linkId=e99c6a35a3dd8b665e1ef56526d8c220&show_border=true&link_opens_in_new_window=true"></iframe> -->
+    <hr style="width: 50%"><br><br>
     <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
     <br><br>
   </div>
-
-<!-- ================   alternate option for Amazon ads (image only) ===============
-<a href="https://www.amazon.com/Green-Magazine-Guide-Personal-Finance/dp/B01D94C880/ref=as_li_ss_il?&linkCode=li2&tag=needaread-20&linkId=586bc47845b72a638dc6b7a706ba27d5" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01D94C880&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=needaread-20" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=needaread-20&l=li2&o=1&a=B01D94C880" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> -->
-
-    <br>
-    <!-- <br><br><br> -->
-    <!-- <hr style="width: 35%; float: left; margin-left: 20px"> -->
-    <!-- <hr style="width: 35%; float: left; margin-left: 15px"> -->
-    <br><br>
-  
+    <br><br><br>
+<!-- =========================== SECTION: Main search; left column ====================== -->    
   <div id="middle">
     <form ng-submit="searchRequest(input)">
       <input type= "text" ng-model="input" placeholder="enter subject, title or author" required style="border-radius: 5px; margin-left: 20px;  width: 180px; line-height: 15px; color: brown;  font-size: 10pt">
@@ -266,9 +218,9 @@
     </form>
     <br><br><br><br>
     <a href="{{GRBookURL}}" target="_blank"><img style="height: 230px;margin-left: 25px; " ng-src="{{ GRBookImage }}"></img></a> <!-- height="240" width="160"  -->
-    <h4>
-     <p style="color: brown; margin-left: 15px">Click image to view book on Goodreads.com.</p>
-    </h4>
+    <h5>
+     <p style="color: brown; margin-left: 15px; font-style: italic;">(click image to view book on Goodreads.com)</p>
+    </h5>
     <div style="margin-left: 30px">
     <h2>
       <a style="color: green;font-weight: bold">Title: </a> {{ title }}
@@ -280,17 +232,25 @@
       <a style="color: green;font-weight: bold">Synopsis: </a> {{ synopsis }} 
     </h3>
   </div>
- </div>
-
+  </div>
+<!-- =========================== SECTION: NYTimes search ====================== -->  
     <hr style="width: 30%">
   <div ng-controller="NYTController">
     <h2>
-    
       <a style="color: green;font-weight: bold; margin-left: 25px">Results from the New York Times</a>
     </h2> 
-    <div style="margin-left: 30px">
-      <button class="NYTSearch" ng-model="NYTSearch" style="color: brown" ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>
-     
+  <div style="margin-left: 30px">
+    <button class="NYTSearch" ng-model="NYTSearch" style="color: brown" ng-click="NYTSearch(input)">Click to see New York Times results for your search term</button><br>  
+    <h3> 
+      <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
+      <br><br>
+      <a style="color: green;font-weight: bold whitespace: pre-wrap;">Author: </a> {{ NYTauthor }}
+      <a style="color: green;font-weight: bold"> | Date: </a> {{ pubdate }}<br><br>
+      <a style="color: green;font-weight: bold">Section: </a> {{ section }}
+      <a style="color: green;font-weight: bold"> | Intro: </a> {{ lead }}<br>
+    </h3>
+  </div>
+  </div>
 <!-- =========  need to display more results and use ng-repeate =========== <table> -->
         <!-- <p ng-repeat="lead in results.leads track by $index"> -->
            <!-- <a style="color: green;font-weight: bold">Lead: </a> {{ lead }} <br> -->
@@ -299,21 +259,8 @@
            <!-- <a style="color: green;font-weight: bold"> URL here: {{ headline }}</a> -->
           <!-- </tr> -->
              <!-- </table>  -->
-    
-    <h3> 
-      <a style="color: green;font-weight: bold" target="_blank" href="{{web_url}}">{{ headline }}</a>
-      <br><br>
-    
-      <a style="color: green;font-weight: bold whitespace: pre-wrap;">Author: </a> {{ NYTauthor }}
-      <a style="color: green;font-weight: bold"> | Date: </a> {{ pubdate }}<br><br>
-      <a style="color: green;font-weight: bold">Section: </a> {{ section }}
-      <a style="color: green;font-weight: bold"> | Intro: </a> {{ lead }}<br>
-     </h3>
-     </div>
-     </div>
-  <!-- </div> -->
+<!-- =========================== SECTION: Quora search ====================== -->                
     <hr style="width: 30%">
-
   <div ng-controller='QuoraController'>
     <h2>
       <a href="{{topicURL}}" target="_blank" style="color: green;font-weight: bold">Search Quora.com for this topic</a>
@@ -327,12 +274,10 @@
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL4}}">{{ QuoraQuestion4 }}</a> <br><br>
       <a style="color: green;font-weight: bold" target="_blank" href="{{QuoraURL5}}">{{ QuoraQuestion5 }}</a> <br>
     </h3>
-    </div>
   </div>
-
-<!-- ============= Twitter widget - will replace with my own ================ -->
+  </div>
+<!-- ==================== SECTION: Twitter widgets (will replace with my code) ============= -->   
 <!-- <div> -->
-    
     <hr style="width: 30%"> 
     <div style="align-content: center;">
     <h2>
@@ -344,55 +289,43 @@
       <br>
       <a class="twitter-timeline" data-widget-id="824267130132713473"  data-screen-name="nytimesbooks"></a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<!-- <div style="float: left"> -->
       <br><br>
       <a class="twitter-timeline"  href="https://twitter.com/hashtag/dostoyevsky" data-widget-id="824267130132713473"></a>
          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       <br><br>
       <a class="twitter-timeline"  data-widget-id="824267130132713473" data-screen-name="jpackel"></a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-      </div>
-      </div>  
-     <!--  <br><br>   -->
-
-      <h2>
+    </div>
+    </div>  
       <br><br>
-      <a style="color: green;font-weight: bold; ">Buyer's bin</a>
-    </h2>  
+<!-- ==================== SECTION: Twitter widgets (will replace with my code) ============= -->   
+      <h2>  
+        <a style="color: green;font-weight: bold; ">Buyer's bin</a>
+      </h2>  
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0374528373&asins=0374528373&linkId=f5d3fc388699c073565b3846e17e4737&show_border=true&link_opens_in_new_window=true"></iframe>
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0S0K&asins=B000PC0S0K&linkId=3e3a5849b2b653f048584c48a6570f8b&show_border=true&link_opens_in_new_window=true"></iframe>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0S0K&asins=B000PC0S0K&linkId=3e3a5849b2b653f048584c48a6570f8b&show_border=true&link_opens_in_new_window=true"></iframe>
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=1101980133&asins=1101980133&linkId=937aaecd488defd173117751a8aa7501&show_border=true&link_opens_in_new_window=true"></iframe>
-    
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0SDW&asins=B000PC0SDW&linkId=53481dc13443eff7584ab387663e53c3&show_border=true&link_opens_in_new_window=true"></iframe>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=1101980133&asins=1101980133&linkId=937aaecd488defd173117751a8aa7501&show_border=true&link_opens_in_new_window=true"></iframe>
+    <br>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=B000PC0SDW&asins=B000PC0SDW&linkId=53481dc13443eff7584ab387663e53c3&show_border=true&link_opens_in_new_window=true"></iframe>
 
-    <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
+        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=needaread-20&marketplace=amazon&region=US&placement=0812973690&asins=0812973690&linkId=420e3d82b0f3a1623998ea172553646b&show_border=true&link_opens_in_new_window=true"></iframe>
 
-    <h4 style="color: brown">Grab some Dostoyevsky or Einstein, understand blockchain or the brain, or dive deep for pirates
-    </h4> 
-
+      <h4 style="color: brown; margin-left: 60px; width: 30%">Grab some Dostoyevsky or Einstein, understand blockchain or the brain, or dive deep for pirates
+      </h4> 
+<!-- ============================ SECTION: banner / separator ============= -->   
       <hr style="width: 40%"> 
-    
-      <br>
-       <img style="padding: 1px; margin: 0px; width: 35%" src="/assets/book banner.jpeg"> 
-
-
-
-<!-- </div> -->
- <br>
-<!-- <div style="width: 40%">
-    <a class="twitter-timeline" href="https://twitter.com/jpackel">Tweets by @jpackel</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-     -->
-     <div id="footer">
+        <br>
+        <img style="padding: 1px; margin: 0px; width: 35%" src="/assets/book banner.jpeg"> 
+        <br>
+<!-- ============================ SECTION: Footer ==================== -->   
+  <div id="footer">
   <!--   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
   <footer class="primary-footer container group">
    <!-- <div style="text-align: center;"> -->
    <!-- <h3> -->
-
    <p> &nbsp</p>
       <a style="text-align: center; ">Created by John Packel</a><br><br>
       <div>
@@ -403,12 +336,13 @@
       </div>
       <p>Like this site? Send Bitcoin to support it! 13JUQxHA4v1Z9MA646Mnyepufo12rg3R5F</p>
    <!-- </h3> -->
-
   </footer>
   </div>
-    </div>
-</div>
+  </div>
+  </div>
+
   <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
   </body>
 </html>
 
