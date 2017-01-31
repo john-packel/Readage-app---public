@@ -21,6 +21,12 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.GRBookURL = "https://www.goodreads.com/book/show/4934";
   $scope.synopsis = "The award-winning translation of Dostoevsky's last and greatest novel. 'The Brothers Karamazov' is a passionate philosophical novel set in 19th-century Russia that enters deeply into the ethical debates regarding God, free will and morality. It is a spiritual drama of moral struggles concerning faith, doubt and reason, set against a modernizing Russia.";
 
+  $scope.AmazonURL = 'http://amzn.to/2kOk3Ao';
+
+  // add in my affiliate code: https://www.amazon.com/Blockchain-Revolution-Technology-Changing-Business/dp/1101980133/ref=as_sl_pc_as_ss_li_til?tag=needaread-20&linkCode=w00&linkId=937aaecd488defd173117751a8aa7501&creativeASIN=1101980133
+
+  console.log('AmazonURL = ', $scope.AmazonURL);
+
   $scope.headline = "THE PLAY; Those Karamazovs Again";
   $scope.web_url = "http://query.nytimes.com/gst/abstract.html?res=9C0CE3D81E30E132A25757C0A9679C946695D6CF&legacy=true";
   $scope.NYTauthor = 'By J. BROOKS ATKINSON';
@@ -43,8 +49,8 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.QuoraURL4 = "https://www.quora.com/Which-Fyodor-Dostoyevsky-book-shall-I-read-to-start-with";
   $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?";
   $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much";
-  $scope.tweetSearch = 'https://twitter.com/search?q=bitcoin';
-
+  // $scope.tweetSearch = 'https://twitter.com/search?q=bitcoin';
+  
   var GRBookID = ''; 
 
   $scope.searchRequest = function(input) {
@@ -76,7 +82,16 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
         // var cleanSynopsis = function(resp.data.GoodreadsResponse.book.description) {
 
         // }
+
+        0374528373
+
         $scope.synopsis = resp.data.GoodreadsResponse.book.description;
+        var ISBN = resp.data.GoodreadsResponse.book.isbn;
+        var AmazonAffiliateCode = '/ref=as_li_tl?ie=UTF8&tag=needaread-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0374528373&linkId=68c70e02c151c73bb8261bc4795e0718';
+        $scope.AmazonURL = 'https://www.amazon.com/gp/product/' + ISBN + AmazonAffiliateCode; 
+
+        console.log('ISBN = ', ISBN);
+        console.log('Amazon search = ', 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=' + ISBN + AmazonAffiliateCode);
         })
       });
   }; // close $scope.searchRequest = function...
