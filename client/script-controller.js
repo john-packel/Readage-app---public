@@ -2,8 +2,8 @@ var needGoodReadApp = angular.module('need_a_good_read', []);
 // create the controller and inject Angular's $scope
 
 // ================== Main controller - search & Goodreads ===========================
-needGoodReadApp.controller('mainController', function($scope, $http) { 
-// should I be using ng-init for these instead? 
+needGoodReadApp.controller('mainController', function($scope, $http) {
+// should I be using ng-init for these instead?
   console.log('script-controller l 5;');
   var quoteChoice = function(){
     var quotes = ['“Taking a new step, uttering a new word, is what people fear most.”  - Fyodor Dostoyevsky', '“It takes something more than intelligence to act intelligently.”  - Fyodor Dostoyevsky', '“Only to live, to live and live! Life, whatever it may be!”  - Fyodor Dostoyevsky', '“What do you think, would not one tiny crime be wiped out by thousands of good deeds?”  - Fyodor Dostoyevsky', '“To go wrong in one\'s own way is better than to go right in someone else\'s.” - Fyodor Dostoyevsky', '"Celebrate the 150-year anniversary of Dostoyevsky\'s masterpiece, \'Crime and Punishment\'!" - John Packel'];
@@ -50,13 +50,15 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
   $scope.QuoraQuestion5 = "Why do readers love Dostoyevski so much?";
   $scope.QuoraURL5 = "https://www.quora.com/Why-do-readers-love-Dostoyevski-so-much";
   // $scope.tweetSearch = 'https://twitter.com/search?q=bitcoin';
-  
-  var GRBookID = ''; 
+
+  var GRBookID = '';
 
   $scope.searchRequest = function(input) {
     $http.post('/request', {search: input}).then(function(resp) {
-      console.log('script-controller.js l 46: mainController / Goodreads input (request) = ', input);
-      console.log('script-controller.js l 47: Goodreads search result object: ', resp.data.GoodreadsResponse.search.results);
+      console.log('script-controller.js l 58: mainController / Goodreads input (request) = ', input);
+      console.log('script-controller.js l 60: Goodreads response: ', resp.data);
+      console.log('script-controller.js l 59: mainController resp.data.GoodreadsResponse = ', resp.data.GoodreadsResponse);
+      console.log('script-controller.js l 60: Goodreads search result object: ', resp.data.GoodreadsResponse.search.results);
       $scope.title = resp.data.GoodreadsResponse.search.results.work[0].best_book.title;
       $scope.author = resp.data.GoodreadsResponse.search.results.work[0].best_book.author.name;
       $scope.rating = resp.data.GoodreadsResponse.search.results.work[0].average_rating;
@@ -73,7 +75,7 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
 
       // $scope.tweetSearch = 'https://twitter.com/search?q' +  replacedValue;
       // console.log('script-controller l 60: tweet search = ', 'https://twitter.com/search?q' +  replacedValue);
-      
+
       console.log('script-controller l 59: GRBookID = ', GRBookID);
     }).then(function() {
       $http.post('/requestSynopsis', {search: GRBookID}).then(function(resp) { // make 2nd API call to get book synopsis
@@ -88,14 +90,14 @@ needGoodReadApp.controller('mainController', function($scope, $http) {
         $scope.synopsis = resp.data.GoodreadsResponse.book.description;
         var ISBN = resp.data.GoodreadsResponse.book.isbn;
         var AmazonAffiliateCode = '/ref=as_li_tl?ie=UTF8&tag=needaread-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0374528373&linkId=68c70e02c151c73bb8261bc4795e0718';
-        $scope.AmazonURL = 'https://www.amazon.com/gp/product/' + ISBN + AmazonAffiliateCode; 
+        $scope.AmazonURL = 'https://www.amazon.com/gp/product/' + ISBN + AmazonAffiliateCode;
 
         console.log('ISBN = ', ISBN);
         console.log('Amazon search = ', 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=' + ISBN + AmazonAffiliateCode);
         })
       });
   }; // close $scope.searchRequest = function...
-}) // close needGoodReadApp.controller('mainController', function($scope, $http) { 
+}) // close needGoodReadApp.controller('mainController', function($scope, $http) {
 
 // ========================= ADDITIONAL CONTROLLERS ===================================
 
@@ -111,7 +113,7 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
           $scope.pubdate = '' // need this to remove any headline from a previous search
           $scope.section = ''
           $scope.lead = ''
-          $scope.headline = '' 
+          $scope.headline = ''
           return;
          } else {
 
@@ -142,7 +144,7 @@ needGoodReadApp.controller('NYTController', function ($scope, $http){
     }});
   };
 }); // close needGoodReadApp.controller('NYTController', function ($scope, $http){
- 
+
 // // ================== Quora.com results controller ===================================
 
 needGoodReadApp.controller('QuoraController', function($scope, $http) {
@@ -202,7 +204,7 @@ needGoodReadApp.controller('QuoraController', function($scope, $http) {
      //  for(var w = 0; w < 10; w++){
      //    leadsArray.push(NYTresultsObj[w].headline.main)
      //  }
-      
+
      //  console.log(leadsArray);
      //  console.log(bylinesArray);
 
