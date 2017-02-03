@@ -76,7 +76,7 @@ var QuoraQuestion;
 // x('https://www.quora.com/search?q=george+bush', '.QueryResults', [{
 //   QQuestionLink: x('.question_link @href'),
 //   QQuestion:  x('.rendered_qtext')
-// 
+//
 var space = / /gi;
 var replacedValue = req.body.search.replace(space, '+');
 console.log('replacedValue = ', replacedValue);
@@ -108,7 +108,7 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
   // console.log('QuoraQuestion from var = ', QuoraQuestion);
 
   res.send(qtext);
-}); 
+});
 });
 
 
@@ -148,13 +148,13 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
 // got this working based on tutorial, but only headline & imageURL are returned
   // x('http://www.wsj.com/news/whats-news', '#move_2 > div.zonedModule > div > ul > li', [{
   //   headline: 'h3 a', // so it drills down based on this path? selector > h3 > a
-  //   link: 'h3 a @href', 
+  //   link: 'h3 a @href',
   //   imageURL: 'img@data-src',
   //   snippet: 'div.summary-container p', // he doesn't explain why .summary
   //   keyword: x('h3 @href', 'head meta[name="keywords"]@content')
   // }])
 
-// John M: website is tree; html > body > 
+// John M: website is tree; html > body >
 
 
 
@@ -162,7 +162,7 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
 
 // #__w2_p4vsdhp_link > span > span
 
-   
+
 // to get the a tags, doesn't matter whether @span.question_text or blank ''
 // x('https://www.quora.com/topic/Bitcoin', 'a', [{atags: '@span.question_text'}])
 // x('https://www.quora.com/topic/Bitcoin', 'a', [{atags: ''}])
@@ -189,11 +189,11 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
 //   console.log('obj = ', obj)})
 
 
-// from documentation: 
+// from documentation:
 
 // var Xray = require('x-ray');
 // var x = Xray();
- 
+
 // x('https://dribbble.com', 'li.group', [{
 //   title: '.dribbble-img strong',
 //   image: '.dribbble-img [data-src]@data-src',
@@ -212,12 +212,12 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
 
 // x('http://google.com', 'title')(function(err, title) {
 //   console.log('index.js line 69 +++++');
-//   console.log(title) // Google 
+//   console.log(title) // Google
 // });
 
 
 
-// I believe I don't need a server-config file because those elements are in this file. 
+// I believe I don't need a server-config file because those elements are in this file.
 // Do I need Grunt, other dependencies, .deployment, any devDependencies, anything else in gitignore?
 
 
