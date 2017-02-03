@@ -14,7 +14,7 @@ app.post('/request', function (req, res) {
   console.log('index.js l. 13: Goodreads req.body.search = ', req.body.search)
   console.log('index.js l. 15: Goodreads req.body = ', req.body)
   // console.log('server.js l. 14: req = ', req)
-  request('https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search,function(error, response, body){
+  request('https://www.goodreads.com/search.xml?key=' + GOODREADS_KEY + '&q=' + req.body.search,function(error, response, body){
       if(error){
         console.error('Error at line 17 in index.js (server).');
         return next(error);
@@ -22,16 +22,16 @@ app.post('/request', function (req, res) {
         else {
     var json = parser.toJson(body);
     // console.log("to json -> %s", json.GoodreadsResponse);
-    console.log('index.js l. 25. search string: https://www.goodreads.com/search.xml?key=nmDiYOICgwuB6r82a1fDPA&q=' + req.body.search);
+    console.log('index.js l. 25. search string: https://www.goodreads.com/search.xml?key=' + GOODREADS_KEY + 'q=' + req.body.search);
 	res.send(json);}
   });
   // example of book search by GR id - Brothers Karamazov - (to get description)
-    // request('https://www.goodreads.com/book/show/4934.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body){
+    // request('https://www.goodreads.com/book/show/4934.xml?key=<<REMOVED>>', function(error, response, body){
 });
 
 app.post('/requestSynopsis', function(req, res) {
   console.log('index.js l. 33; request received from controller for requestSynopsis: ', req.body.search);
-  request('https://www.goodreads.com/book/show/' + req.body.search +'.xml?key=nmDiYOICgwuB6r82a1fDPA', function(error, response, body) {
+  request('https://www.goodreads.com/book/show/' + req.body.search +'.xml?key=' + GOODREADS_KEY, function(error, response, body) {
     if(error) {
       console.error('Error at l. 36 in index.js (server).');
       return next(error);
@@ -44,7 +44,7 @@ app.post('/requestSynopsis', function(req, res) {
 app.post('/NYTrequest', function (req, res) {
   console.log('index.js l. 34: NYTrequest req.body.search ', req.body.search);
 
-  request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + req.body.search + '&api-key=6a37f426b37a40daa8a4bca027c34077',
+  request('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + req.body.search + '&api-key=' + NYTIMES_ARTICLE_KEY,
    function(error,response, body){
     if(error){
       console.error('Error at line 40 in index.js (server).');
@@ -225,7 +225,7 @@ x('https://www.quora.com/search?q=' + replacedValue, '.pagedlist_item', [{
 // request.get({
 //   url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
 //   qs: {
-//     'api-key': "6a37f426b37a40daa8a4bca027c34077",
+//     'api-key': <<removed for security>>,
 //     'q': "dostoyevsky"
 //   },
 // }, function(err, response, body) {

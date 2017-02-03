@@ -3,26 +3,26 @@
     <Request>
         <authentication>true</authentication>
         <key>
-            <![CDATA[nmDiYOICgwuB6r82a1fDPA]]>
+            <![CDATA[<<REMOVE>>]]>
         </key>
         <method>
             <![CDATA[search_search]]>
         </method>
     </Request>
     <search>
-        
+
         <query>
             <![CDATA[Robert Kurson]]>
         </query>
-        
+
         <results-start>1</results-start>
         <results-end>9</results-end>
         <total-results>9</total-results>
-        
+
         <source>Goodreads</source>
         <query-time-seconds>0.09</query-time-seconds>
         <results>
-            
+
             <work>
                 <id type="integer">1267146</id>
                 <books_count type="integer">33</books_count>
@@ -43,8 +43,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">42710965</id>
                 <books_count type="integer">13</books_count>
@@ -65,8 +65,8 @@
                     <small_image_url>https://images.gr-assets.com/books/1432123218s/23164968.jpg</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">384885</id>
                 <books_count type="integer">1</books_count>
@@ -87,8 +87,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">1232803</id>
                 <books_count type="integer">3</books_count>
@@ -129,8 +129,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">42285567</id>
                 <books_count type="integer">1</books_count>
@@ -151,8 +151,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">5441</id>
                 <books_count type="integer">28</books_count>
@@ -173,8 +173,8 @@
                     <small_image_url>https://images.gr-assets.com/books/1473017665s/210016.jpg</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">49028064</id>
                 <books_count type="integer">1</books_count>
@@ -195,8 +195,8 @@
                     <small_image_url>https://images.gr-assets.com/books/1454243557s/28812407.jpg</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">51044799</id>
                 <books_count type="integer">1</books_count>
