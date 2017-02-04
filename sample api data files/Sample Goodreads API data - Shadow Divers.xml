@@ -3,7 +3,7 @@
     <Request>
         <authentication>true</authentication>
         <key>
-            <![CDATA[nmDiYOICgwuB6r82a1fDPA]]>
+            <![CDATA[<<removed key>>]]>
         </key>
         <method>
             <![CDATA[search_search]]>
@@ -13,15 +13,15 @@
         <query>
             <![CDATA[Shadow Divers]]>
         </query>
-        
+
         <results-start>1</results-start>
         <results-end>5</results-end>
         <total-results>5</total-results>
-        
+
         <source>Goodreads</source>
         <query-time-seconds>0.05</query-time-seconds>
         <results>
-            
+
             <work>
                 <id type="integer">1267146</id>
                 <books_count type="integer">33</books_count>
@@ -42,8 +42,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">199218</id>
                 <books_count type="integer">1</books_count>
@@ -64,8 +64,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">3083031</id>
                 <books_count type="integer">16</books_count>
@@ -86,8 +86,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">49463383</id>
                 <books_count type="integer">1</books_count>
@@ -108,8 +108,8 @@
                     <small_image_url>https://s.gr-assets.com/assets/nophoto/book/50x75-a91bf249278a81aabab721ef782c4a74.png</small_image_url>
                 </best_book>
             </work>
-            
-            
+
+
             <work>
                 <id type="integer">42285567</id>
                 <books_count type="integer">1</books_count>
