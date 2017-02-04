@@ -7,7 +7,7 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
-require('dotenv').config();
+// var dotenv = require('dotenv').config();
 
 // Ex in documentation: https://devcenter.heroku.com/articles/config-vars
 // const aws = require('aws-sdk');
