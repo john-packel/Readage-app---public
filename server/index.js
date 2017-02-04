@@ -7,7 +7,10 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
-// var dotenv = require('dotenv').config();
+require('../.env');
+// require('.env');
+// var buf = new Buffer('BASIC=basic');
+// var config = dotenv.parse(buf)
 
 // Ex in documentation: https://devcenter.heroku.com/articles/config-vars
 // const aws = require('aws-sdk');
@@ -18,8 +21,8 @@ var parser = require('xml2json');
 // });
 
 
-var Goodreads_Key = process.env.GOODREADS_KEY;
-var NYTimes_Article_Key = process.env.NYTIMES_ARTICLE_KEY;
+var Goodreads_Key = process.env.GOODREADS_KEY || config.GOODREADS_KEY;
+var NYTimes_Article_Key = process.env.NYTIMES_ARTICLE_KEY || config.NYTIMES_ARTICLE_KEY;
 
 app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser());
