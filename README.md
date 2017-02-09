@@ -22,9 +22,9 @@ Some future features I'm working on or considering:
 
   . (also see decentralization point below in this regard)
 
-- Feedback form so users can tell me what they like and don't like, plus features they want (shout out to Jackie Day for the request for an Amazon link to buy the book you search; hint: it's below the book synopsis and VERY fun to use, especially when you actually buy the book; or a robot)
-
 - Blurb committing to donate all proceeds to charity (such as @codetoinspire)? I want people like John Michellin buying their expensive robots on Amazon through Readage so we get some sweet commish (he's already "got a guy for my rare sword purchases")
+
+- Feedback form so users can tell me what they like and don't like, plus features they want (shout out to Jackie Day for the request for an Amazon link to buy the book you search; hint: it's below the book synopsis and VERY fun to use, especially when you actually buy the book; heck, live a little and buy an expensive robot while you're at it - I'll give you a kickback!)
 
 - Stuff I want to do/build longer-term: have audio play on the site (auto or button)? could be clips from audiobooks! Spotify  links/iTunes music or iTunes U previews
 
@@ -34,7 +34,7 @@ Some future features I'm working on or considering:
 
   . no really, please don't look - unless you want to give me tips!
 
-  . At the very least, the left column needs to be wider and I need more clarity regarding "search stuff" vs "browse stuff"
+  . At the very least, the left column needs to be wider and I need more clarity regarding "search stuff" vs "browse stuff" (this one is moving up in priority after a fellow Hack Reactor student showed me the basics of Bootstrap between sprints; thanks, Rich!)
 
 - Top navigation, other pages? I kinda like the single-page app approach here, but let me know if you have thoughts
 
@@ -44,7 +44,7 @@ Some future features I'm working on or considering:
 
   . corollary: features that could snag some media, helping expand the funnel for above points
 
-- Fix then replace the dang widgets (because: "We don't use widgets, we build them" - John Michellin)
+- Fix then replace the dang widgets (because: "We don't use widgets, we build them" - John Michelin)
 
 - Features serving the app's various audiences: readers, book industry peeps? Identify yourself, my audiences!
 
@@ -56,4 +56,4 @@ Some future features I'm working on or considering:
 
 - Mouse-over on quotes, pulls them out bigly? (also for photos, etc.?)
 
-[add the others from my waffle.io user stories]
+[note to self: add the others from my waffle.io user stories]
