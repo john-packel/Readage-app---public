@@ -22,7 +22,7 @@ Some future features I'm working on or considering:
 
   . (also see decentralization point below in this regard)
 
-- Blurb committing to donate all proceeds to charity (such as @codetoinspire)? I want people like John Michellin buying their expensive robots on Amazon through Readage so we get some sweet commish (he's already "got a guy for my rare sword purchases")
+- Blurb committing to donate all proceeds to charity (such as @codetoinspire)? I want people like "JavaScript John" Michelin (https://javascriptjohn.com/author/jmichelin/) buying their expensive robots on Amazon through Readage so we get some sweet commish (he's already "got a guy for my rare sword purchases")
 
 - Feedback form so users can tell me what they like and don't like, plus features they want (shout out to Jackie Day for the request for an Amazon link to buy the book you search; hint: it's below the book synopsis and VERY fun to use, especially when you actually buy the book; heck, live a little and buy an expensive robot while you're at it - I'll give you a kickback!)
 
