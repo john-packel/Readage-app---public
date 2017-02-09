@@ -1,5 +1,7 @@
 # Readage - find your good words
 
+https://enigmatic-hollows-50908.herokuapp.com/
+
 Project description: Mash-up of several sources of quality insights on a topic the user searches (i.e., 1 search returns results from several sources)
 
 My first solo app! Created the initial MVP in 24 hours at Hack Reactor and presented it successfully. Added a bunch of features in December and January that I didn't get time to initially (partly because of the challenges in learning how to parse the XML to JSON - the documentation lies). To prioritize (via waffle.io) I balanced features that would teach me new things plus features I need, as I use this app nearly every day (which is how I've found and fixed a bunch of bugs and also addressed idiosyncrasies of the APIs and challenges inherent in scraping Quora.com).
