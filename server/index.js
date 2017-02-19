@@ -5,6 +5,8 @@ var app = express();
 var request = require('request');
 var parser = require('xml2json');
 
+// require('dotenv').config({path: '/../.env'});
+
 // require('../.env');
 // require('.env');
 // var buf = new Buffer('BASIC=basic');
@@ -17,6 +19,7 @@ var parser = require('xml2json');
 //   accessKeyId: process.env.S3_KEY,
 //   secretAccessKey: process.env.S3_SECRET
 // });
+
 
 var Goodreads_Key = process.env.GOODREADS_KEY;
 var NYTimes_Article_Key = process.env.NYTIMES_ARTICLE_KEY;
